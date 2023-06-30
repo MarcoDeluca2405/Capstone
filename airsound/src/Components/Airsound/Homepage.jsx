@@ -1,42 +1,38 @@
 import { Col, Row, ToastContainer } from "react-bootstrap";
 import Footer from "./Footer";
-import Sidebar from "./Sidebar"
+import Sidebar from "./Sidebar";
 import SidebarUp from "./SidebarUp-";
 import SearchBar from "./SearchBar";
+import HeroSection from "./heroSection";
+import CategoryAlbum from "./CategoryAlbum";
 
 
-const Homepage= ()=>{
-
-
-return(
+const Homepage = () => {
+  return (
     <>
-<SidebarUp />
+      <SidebarUp />
 
-<Row className="mt-3">
+      <Row className="mt-3 m-0">
+        <Sidebar />
+        
+        <Col>
+          <SearchBar />
+          <Col>
 
-<Sidebar />
+            <HeroSection />
+            <Col>
+            
+            <CategoryAlbum />
+            
+            </Col>
+    
+          </Col>
+        </Col>
+      </Row>
 
-
-<Col>
-    <SearchBar />
-<Col>
-fdsa
-</Col>
-
-
-
-</Col>
-
-
-</Row>
-
-
-<Footer />
-
+      <Footer />
     </>
-)
-
-}
-
+  );
+};
 
 export default Homepage;
