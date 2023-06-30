@@ -9,7 +9,7 @@ const SidebarUp= ()=>{
   
   //dispatch
   const dispatch=useDispatch();
-  const citta= useSelector((state)=>state.user.city);
+ const citta= useSelector((state)=>state.user.user.city);
   
   //useEffect
 
@@ -20,8 +20,8 @@ useEffect(()=>{
 
 //useSelector
 
-const temp=useSelector((state)=>state.meteo.main?.temp)
-const weather= useSelector((state)=>state.meteo?.weather[0].icon)
+const temp=useSelector((state)=>state.user.meteo.main?.temp)
+const weather= useSelector((state)=>state.user.meteo?.weather[0].icon)
 
 
 return(
@@ -31,6 +31,7 @@ return(
       <Navbar.Toggle />
       <Navbar.Collapse className="justify-content-end">
         <Navbar.Text className="text-light">
+         
           <span>
             {citta}: {temp} °C  
            
@@ -39,6 +40,7 @@ return(
 
            
             </span>
+
         </Navbar.Text>
       </Navbar.Collapse>
     </Container>

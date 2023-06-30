@@ -1,7 +1,7 @@
 import { Col, Row, ToastContainer } from "react-bootstrap";
 import Footer from "./Footer";
 import Sidebar from "./Sidebar";
-import SidebarUp from "./SidebarUp-";
+import SidebarUp from "./SidebarUp";
 import SearchBar from "./SearchBar";
 import HeroSection from "./heroSection";
 import CategoryAlbum from "./CategoryAlbum";
@@ -10,7 +10,7 @@ import CategoryAlbum from "./CategoryAlbum";
 const Homepage = () => {
   return (
     <>
-      <SidebarUp />
+    <SidebarUp />
 
       <Row className="mt-3 m-0">
         <Sidebar />

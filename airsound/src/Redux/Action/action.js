@@ -1,3 +1,5 @@
+import { getClub, getDance, getHipHop, getPop, getPunk, getRock } from "./actionAlbum";
+
 export const ADD_NAME="ADD_NAME";
 export const ADD_LASTNAME="ADD_LASTNAME";
 export const ADD_USERNAME="ADD_USERNAME";
@@ -8,7 +10,7 @@ export const ADD_ROLE="ADD_ROLE";
 export const ADD_PROVINCIA="ADD_PROVINCIA";
 export const ADD_CITY="ADD_CITY";
 export const ADD_METEO="ADD_METEO";
-
+export const ADD_TOKEN_SPOTIFY="ADD_TOKEN_SPOTIFY";
 
 export const add_name=(name)=>({
     type:ADD_NAME,
@@ -60,6 +62,11 @@ export const add_meteo=(meteo)=>({
     payload:meteo
 })
 
+export const add_token_spotify=(token)=>({
+    type:ADD_TOKEN_SPOTIFY,
+    payload:token
+})
+
 
 //fetch dispatch
 
@@ -80,5 +87,35 @@ export const meteoNEWS=(citta)=>{
         }
 
     }
+}
+
+    export const tokenSpotify=()=>{
+        const client="c70f5f0fe7b249fbb12cca5c595e1804";
+        const secretkey="0a9259c4d5d24b67845371f67d2c0802";
+        return async(dispatch,getState) =>{
+            try {
+                
+                const response=await fetch(`https://accounts.spotify.com/api/token`,{
+                method: "POST",
+                headers:{
+                    'Content-Type':'application/x-www-form-urlencoded'
+                },
+                body: 'grant_type=client_credentials&client_id='+client+'&client_secret='+secretkey
+                })
+                if(response.ok){
+                    const data=await response.json();
+                    dispatch(add_token_spotify(data));
+                    dispatch(getPop(data.access_token))
+                    dispatch(getRock(data.access_token))
+                    dispatch(getHipHop(data.access_token))
+                    dispatch(getPunk(data.access_token))
+                }
+    
+    
+            } catch (error) {
+                console.log(error);
+            }
+    
+        }
 
 }

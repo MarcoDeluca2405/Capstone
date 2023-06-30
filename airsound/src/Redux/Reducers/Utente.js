@@ -1,4 +1,4 @@
-import { ADD_CITY, ADD_EMAIL, ADD_LASTNAME, ADD_METEO, ADD_NAME, ADD_PASSWORD, ADD_PROVINCIA, ADD_ROLE, ADD_TOKEN, ADD_USERNAME } from "../Action/action"
+import { ADD_CITY, ADD_EMAIL, ADD_LASTNAME, ADD_METEO, ADD_NAME, ADD_PASSWORD, ADD_PROVINCIA, ADD_ROLE, ADD_TOKEN, ADD_TOKEN_SPOTIFY, ADD_USERNAME } from "../Action/action"
 
 
 const initialState = {
@@ -13,7 +13,8 @@ const initialState = {
         provincia:"",
         city: ""
     },
-    meteo:[]
+    meteo:[],
+    spotifyToken:""
 }
 
 const mainProfile = (state = initialState, action) => {
@@ -106,6 +107,12 @@ const mainProfile = (state = initialState, action) => {
             return{
                 ...state,
                 meteo:action.payload
+            }
+
+        case ADD_TOKEN_SPOTIFY:
+            return{
+                ...state,
+                spotifyToken:action.payload
             }
 
         default: return state;
