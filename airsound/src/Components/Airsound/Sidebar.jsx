@@ -2,9 +2,11 @@ import { useState } from "react";
 import { Card, Col, Image, Row } from "react-bootstrap";
 import * as IconRi from "react-icons/ri";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
   const [click, setClick] = useState(false);
+  const navigate= useNavigate();
   const username= useSelector((state)=> state.user.username);
 
   return (
@@ -32,7 +34,7 @@ const Sidebar = () => {
 
                   <Col className="pb-2">
                   
-                  <div className="d-flex align-items-end div-effect" >
+                  <div className="d-flex align-items-end div-effect" onClick={()=>navigate("/home")} >
                     <IconRi.RiHome5Fill className="MyColor-Green" /> <span className="MyFont-text">Home</span>
                   </div> 
                   

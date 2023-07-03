@@ -19,6 +19,7 @@ import {
   add_token_spotify,
   add_username,
   meteoNEWS,
+  tokenDenzer,
   tokenSpotify,
 } from "../../Redux/Action/action";
 
@@ -100,7 +101,7 @@ const notifyError = () =>   toast.error('qualcosa è andato storto', {
             dispatch(add_token(data.accessToken));
             dispatch(add_role(data2.roles));
             dispatch(meteoNEWS(data2.adress.città));
-            dispatch(tokenSpotify());
+       
             
             setTimeout(()=>navigate("/home"),4000);
           }

@@ -5,9 +5,14 @@ import SidebarUp from "./SidebarUp";
 import SearchBar from "./SearchBar";
 import HeroSection from "./heroSection";
 import CategoryAlbum from "./CategoryAlbum";
+import { Route } from "react-router-dom";
+
+
 
 
 const Homepage = () => {
+
+
   return (
     <>
     <SidebarUp />
@@ -28,6 +33,7 @@ const Homepage = () => {
     
           </Col>
         </Col>
+
       </Row>
 
       <Footer />

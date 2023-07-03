@@ -7,6 +7,7 @@ import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import Homepage from './Components/Airsound/Homepage';
 import PageLogin from './Components/Login/PageLogin';
 import PageRegister from './Components/Register/RegisterPage';
+import AlbumPage from './Components/Airsound/AlbumPage';
 
 function App() {
   return (
@@ -27,6 +28,10 @@ function App() {
 <Route path='/Home' element={
   <Homepage />
 }></Route>
+
+<Route path='/albumPage' element={
+  <AlbumPage />
+} />
 
 
       
