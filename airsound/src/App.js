@@ -8,6 +8,7 @@ import Homepage from './Components/Airsound/Homepage';
 import PageLogin from './Components/Login/PageLogin';
 import PageRegister from './Components/Register/RegisterPage';
 import AlbumPage from './Components/Airsound/AlbumPage';
+import TracksPage from './Components/Airsound/TracksPage';
 
 function App() {
   return (
@@ -31,6 +32,10 @@ function App() {
 
 <Route path='/albumPage' element={
   <AlbumPage />
+} />
+
+<Route path='/TracksPage' element={
+<TracksPage />
 } />
 
 

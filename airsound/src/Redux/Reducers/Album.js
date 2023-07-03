@@ -1,8 +1,9 @@
-import { SELECT_ALBUM } from "../Action/actionAlbum";
+import { GET_TRACKS, SELECT_ALBUM } from "../Action/actionAlbum";
 
 
 const initialState ={
-   albumSelect:{}
+   albumSelect:{},
+   tracks:{}
 }
 
 
@@ -13,13 +14,20 @@ const Album=(state=initialState,action)=>{
         case SELECT_ALBUM:
         return{
             ...state,
-            albumSelect:action
+            albumSelect:action.payload
         }
-
+        
+        case GET_TRACKS:
+        return{
+            ...state,
+            tracks:action.payload
+        }
 
 
         default: return state;
     }
+
+    
 
 }
 

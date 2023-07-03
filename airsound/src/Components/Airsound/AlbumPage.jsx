@@ -4,6 +4,7 @@ import Sidebar from "./Sidebar";
 import SearchBar from "./SearchBar";
 import Footer from "./Footer";
 import HeroSectionAlbum from "./HeroSectionAlbum";
+import AlbumList from "./AlbumList";
 
 const AlbumPage=()=>{
 
@@ -21,7 +22,8 @@ return(
 
            <HeroSectionAlbum />
             <Col>
-            
+
+              <AlbumList />
             
             
             </Col>

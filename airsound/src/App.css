@@ -238,7 +238,7 @@
   position: sticky;
   top:100px;
   height: 0px;
-  z-index: 1;
+  z-index: 100;
   left: 1px;
   background-color: #282c34;
 }
@@ -495,4 +495,48 @@ background: linear-gradient(90deg, rgba(2,0,36,0.9990371148459384) 0%, rgba(113,
   width: 100%;
   height: 100%;
   filter: blur(5px);
+}
+
+.title{
+  font-size: 50px;
+  margin: 0 auto;
+}
+
+.myImageSet{
+  width: 100%;
+  height: 100%;
+}
+.myCol{
+  height: 100%;
+}
+
+.itemColor{
+  background: rgb(3,18,21);
+background: linear-gradient(155deg, rgba(3,18,21,0.9598214285714286) 0%, rgba(60,62,68,1) 43%, rgba(176,175,201,0.9990371148459384) 100%);
+}
+
+.listGroupDiv{
+  cursor: pointer;
+  position: relative;
+  bottom: 0;
+  transition:transform 1s;
+}
+
+.listGroupDiv:hover{
+
+  animation-name: example;
+  animation-duration: 0.8s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes example {
+  0% {bottom: 30px;}
+  100%{bottom: 0px;}
+
+}
+
+.listGroupDiv:active{
+  transform: rotateZ(15deg);
 }
