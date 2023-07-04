@@ -4,6 +4,8 @@ import Sidebar from "./Sidebar"
 import SearchBar from "./SearchBar"
 import HeroSectionAlbum from "./HeroSectionAlbum"
 import Footer from "./Footer"
+import TrackList from "./TracksList"
+import MediaPlayer from "./MediaPlayer"
 
 
 const TracksPage= ()=>{
@@ -25,7 +27,7 @@ return(
            <HeroSectionAlbum />
             <Col>
 
-              
+              <TrackList />
             
             
             </Col>
@@ -34,6 +36,7 @@ return(
         </Col>
 
       </Row>
+      <MediaPlayer />
 
       <Footer />
     </>

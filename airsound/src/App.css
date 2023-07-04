@@ -540,3 +540,10 @@ background: linear-gradient(155deg, rgba(3,18,21,0.9598214285714286) 0%, rgba(60
 .listGroupDiv:active{
   transform: rotateZ(15deg);
 }
+
+.myMediaPlayer{
+  position: sticky;
+  left: 150px;
+  bottom: 150px;
+  z-index: 1;
+}

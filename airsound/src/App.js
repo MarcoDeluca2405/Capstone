@@ -9,6 +9,8 @@ import PageLogin from './Components/Login/PageLogin';
 import PageRegister from './Components/Register/RegisterPage';
 import AlbumPage from './Components/Airsound/AlbumPage';
 import TracksPage from './Components/Airsound/TracksPage';
+import MediaPlayer from './Components/Airsound/MediaPlayer';
+
 
 function App() {
   return (
@@ -35,7 +37,9 @@ function App() {
 } />
 
 <Route path='/TracksPage' element={
+  <>
 <TracksPage />
+  </>
 } />
 
 
@@ -48,6 +52,5 @@ function App() {
 }
 
 export default App;
-<script
-  src="https://cdn.jsdelivr.net/npm/react-bootstrap@next/dist/react-bootstrap.min.js"
-  crossorigin></script>
+<script src="https://cdn.jsdelivr.net/npm/react-bootstrap@next/dist/react-bootstrap.min.js"crossorigin></script>;
+<script src="https://unpkg.com/react-media-player/dist/react-media-player.js"></script>;

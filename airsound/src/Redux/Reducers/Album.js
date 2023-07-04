@@ -1,9 +1,11 @@
-import { GET_TRACKS, SELECT_ALBUM } from "../Action/actionAlbum";
+import { GET_TRACKS,SELECT_ALBUM, SELECT_ALBUM2, TRACKADDFAV, TRACKREMOVEDFAV } from "../Action/actionAlbum";
 
 
 const initialState ={
    albumSelect:{},
-   tracks:{}
+   tracks:{},
+   albumSelect2:{},
+   trackFav:[]
 }
 
 
@@ -23,6 +25,26 @@ const Album=(state=initialState,action)=>{
             tracks:action.payload
         }
 
+        case SELECT_ALBUM2:
+            return{
+                ...state,
+                albumSelect2:action.payload
+            }
+
+
+          case TRACKADDFAV:
+            return{
+                ...state,
+                trackFav:[...state.trackFav,action.payload]
+            }  
+
+
+            case TRACKREMOVEDFAV:
+                return{
+                    ...state,
+                  trackFav:state.trackFav.filter((track,i)=>track.id!==action.payload.id)
+                 
+                }
 
         default: return state;
     }

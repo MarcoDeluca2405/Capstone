@@ -4,7 +4,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import { useEffect, useState } from "react";
 import { fetchDataAlbum } from "../../js/fetchDataDeenzer";
 import { useNavigate } from "react-router-dom";
-import { getTracks } from "../../Redux/Action/actionAlbum";
+import { getTracks, select_album2 } from "../../Redux/Action/actionAlbum";
 
 
 const AlbumList= ()=>{
@@ -24,8 +24,8 @@ const AlbumList= ()=>{
 
 
     const HadlerClick=(albumTracks)=>{
-        console.log(albumTracks)
-        dispatch(getTracks(albumTracks))
+        dispatch(select_album2(albumTracks))
+        dispatch(getTracks(albumTracks.tracklist))
         setTimeout(()=>navigate("/TracksPage"),1000);
 
     }
@@ -42,7 +42,7 @@ const AlbumList= ()=>{
                         <>
                         <Col>
                         
-                        <ListGroup key={el.id} horizontal  className="my-2 listGroupDiv" onClick={()=>HadlerClick(el.album.tracklist)}>
+                        <ListGroup key={el.id} horizontal  className="my-2 listGroupDiv" onClick={()=>HadlerClick(el.album)}>
                     <ListGroup.Item className="itemColor"><img src={el.album.cover} alt="image"/></ListGroup.Item>
                   <ListGroup.Item  className="itemColor text-light w-100 d-flex align-items-center"><span>{el.album.title}</span></ListGroup.Item>
                     </ListGroup>    
