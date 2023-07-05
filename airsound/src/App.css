@@ -215,7 +215,7 @@
 /*posizione container al centro*/
 
 .box-center{
-  position: absolute;
+  
       top: 200px;
       right: 0;
       left: 0;
@@ -228,7 +228,7 @@
 }
 
 .footer{
- 
+
   bottom: 0; 
 
   width: 100%;
@@ -476,6 +476,7 @@ background: linear-gradient(90deg, rgba(2,0,36,0.9990371148459384) 0%, rgba(113,
 .card_title3 {
   color: #fff;
   position: absolute;
+  
   top: 50%;
   right: 10px;
   transform: translateY(-50%);
@@ -543,7 +544,30 @@ background: linear-gradient(155deg, rgba(3,18,21,0.9598214285714286) 0%, rgba(60
 
 .myMediaPlayer{
   position: sticky;
-  left: 150px;
-  bottom: 150px;
+  margin: auto;
+  bottom: 0px;
   z-index: 1;
+}
+
+.trackListItem .item{
+  cursor: pointer;
+  background-color: rgb(3,18,21);
+background: linear-gradient(180deg, rgba(3,18,21,0.9598214285714286) 0%, rgba(255,255,255,1) 98%, rgba(176,175,201,0.9990371148459384) 100%);
+  color: rgb(225, 225, 225);
+
+}
+
+.trackListItem:hover .item{
+  background-color: rgb(176,175,201);
+  background: linear-gradient(180deg, rgba(176,175,201,0.9990371148459384) 0%, rgba(255,255,255,1) 4%, rgba(3,18,21,0.9598214285714286) 96%);
+}
+
+
+.iconClose{
+  position: absolute;
+  right: 0;
+}
+
+.rhap_background-color{
+  background-color: #00ff75;
 }

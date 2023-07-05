@@ -182,7 +182,7 @@ const PageRegister=()=>{
 
 return(
   <>
-<Container className="d-flex justify-content-center box-center">
+<Container className="d-flex justify-content-center box-center my-4">
 
 <div className="cardfill">
   <div className="card2fill">

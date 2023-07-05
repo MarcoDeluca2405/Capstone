@@ -113,7 +113,7 @@ const notifyError = () =>   toast.error('qualcosa è andato storto', {
   };
 
   return (
-    <Container className="d-flex justify-content-center box-center">
+    <Container className="d-flex justify-content-center box-center my-5 p-5">
       <div className="cardfill">
         <div className="card2fill">
           <form

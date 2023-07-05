@@ -36,9 +36,9 @@ return(
         </Col>
 
       </Row>
-      <MediaPlayer />
 
-      <Footer />
+
+  
     </>
 
 

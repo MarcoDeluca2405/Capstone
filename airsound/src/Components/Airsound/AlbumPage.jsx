@@ -33,7 +33,7 @@ return(
 
       </Row>
 
-      <Footer />
+      
     </>
 
 );

@@ -17,7 +17,7 @@ const Homepage = () => {
     <>
     <SidebarUp />
 
-      <Row className="mt-3 m-0">
+      <Row className="my-4 pb-5 m-0">
         <Sidebar />
         
         <Col>
@@ -36,7 +36,7 @@ const Homepage = () => {
 
       </Row>
 
-      <Footer />
+     
     </>
   );
 };

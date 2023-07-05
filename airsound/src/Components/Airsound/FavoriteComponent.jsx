@@ -46,7 +46,7 @@ return(
 {isFav?
  (
 <>
-<ListGroup.Item variant="dark" onClick={()=>{HadlerRemoveFav(props.props) }} className="w-25 d-flex align-items-center justify-content-center"><Icon.AiFillHeart   size={25}/></ListGroup.Item>
+<ListGroup.Item  onClick={()=>{HadlerRemoveFav(props.props) }} className="w-25 item d-flex align-items-center justify-content-center"><Icon.AiFillHeart   size={25}/></ListGroup.Item>
 
 </>
 )
@@ -54,7 +54,7 @@ return(
 :
 
 (<>
-<ListGroup.Item variant="dark" onClick={()=>{handleFav(props.props) }} className="w-25 d-flex align-items-center justify-content-center"><Icon.AiOutlineHeart  size={25}/></ListGroup.Item>
+<ListGroup.Item  onClick={()=>{handleFav(props.props) }} className="w-25 d-flex item align-items-center justify-content-center"><Icon.AiOutlineHeart  size={25}/></ListGroup.Item>
 
 
 </>)

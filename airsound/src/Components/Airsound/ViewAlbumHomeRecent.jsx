@@ -41,7 +41,7 @@ return(
     <div class="cards3" onClick={()=>handleClick(album1?.data[3])}>
     <figure class="card3" >
     <img src={album1?.data[3].artist.picture} alt="img_category" className="card3Image"/>
-        <figcaption class="card_title3"><img src={album1?.data[3].artist.picture}  alt="img_category" style={{width:"150px"}}/><span>N.E.R.D</span> </figcaption>
+        <figcaption class="card_title3"><img src={album1?.data[3].artist.picture}  alt="img_category" style={{width:"150px"}}/><span>{album1?.data[0].artist.name}</span> </figcaption>
     </figure>
     </div>
 
@@ -51,7 +51,7 @@ return(
     <div class="cards3" onClick={()=>handleClick(album2?.data[1])}>
     <figure class="card3" >
     <img src={album2?.data[2].artist.picture} alt="img_category" className="card3Image"/>
-        <figcaption class="card_title3"><img src={album2?.data[1].artist.picture}  alt="img_category" style={{width:"150px"}}/><span>Shakira</span> </figcaption>
+        <figcaption class="card_title3"><img src={album2?.data[1].artist.picture}  alt="img_category" style={{width:"150px"}}/><span>{album2?.data[0].artist.name}</span> </figcaption>
     </figure>
     </div>
     </Col>
@@ -60,7 +60,7 @@ return(
     <div class="cards3" onClick={()=>handleClick(album3?.data[0])}>
     <figure class="card3" >
     <img src={album3?.data[0].artist.picture} alt="img_category" className="card3Image"/>
-        <figcaption class="card_title3"><img src={album3?.data[0].artist.picture}  alt="img_category" style={{width:"150px"}}/><span>Fedez</span> </figcaption>
+        <figcaption class="card_title3"><img src={album3?.data[0].artist.picture}  alt="img_category" style={{width:"150px"}}/><span>{album3?.data[0].artist.name}</span> </figcaption>
     </figure>
     </div>
     </Col>
@@ -69,7 +69,7 @@ return(
     <div class="cards3" onClick={()=>handleClick(album4?.data[0])}>
     <figure class="card3" >
     <img src={album4?.data[0].artist.picture} alt="img_category" className="card3Image"/>
-        <figcaption class="card_title3"><img src={album4?.data[0].artist.picture}  alt="img_category" style={{width:"150px"}}/><span>Ultimo</span> </figcaption>
+        <figcaption class="card_title3"><img src={album4?.data[0].artist.picture}  alt="img_category" style={{width:"150px"}}/><span>{album4?.data[0].artist.name}</span> </figcaption>
     </figure>
     </div>
     </Col>

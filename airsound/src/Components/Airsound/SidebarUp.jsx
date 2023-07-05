@@ -21,7 +21,7 @@ useEffect(()=>{
 //useSelector
 
 const temp=useSelector((state)=>state.user.meteo.main?.temp)
-const weather= useSelector((state)=>state.user.meteo.weather[0].icon)
+const weather= useSelector((state)=>state.user.meteo.weather[0]?.icon)
 
 
 return(

@@ -3,7 +3,18 @@ export const GET_TRACKS="GET_TRACKS";
 export const SELECT_ALBUM2="SELECT_ALBUM2";
 export const TRACKADDFAV="TRACKADDFAV";
 export const TRACKREMOVEDFAV="TRACKREMOVEDFAV";
+export const IS_SELECT="IS_SELECT";
+export const SELECT_TRACK="SELECT_TRACK";
 
+export const select_track=(select_track)=>({
+    type:SELECT_TRACK,
+    payload:select_track
+})
+
+export const is_select=(select)=>({
+    type:IS_SELECT,
+    payload:select
+})
 
 export const select_album=(select)=>({
 type:SELECT_ALBUM,

@@ -1,4 +1,4 @@
-import { Provider } from 'react-redux';
+import { Provider, useSelector } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 import store from './Redux/Store/store';
@@ -10,22 +10,33 @@ import PageRegister from './Components/Register/RegisterPage';
 import AlbumPage from './Components/Airsound/AlbumPage';
 import TracksPage from './Components/Airsound/TracksPage';
 import MediaPlayer from './Components/Airsound/MediaPlayer';
+import Footer from './Components/Airsound/Footer';
+import SideBarUpInizial from './Components/Airsound/SidebarUp/Login/SideBarUpInizial';
 
 
 function App() {
+
+  const is_select=useSelector((state)=>state.Album.isSelect)
+
   return (
     <BrowserRouter>
-    <Provider store={store}>
-    <div className="App">
-    <Routes>
+    
+    <div className="App vh-100">
    
+    <Routes>
 
 <Route path='/' element={
+  <>
+  <SideBarUpInizial />
   <PageLogin />
+  </>
 }></Route>
 
 <Route path='/Sing-up' element={
+  <>
+  <SideBarUpInizial />
   <PageRegister />
+  </>
 }></Route>
 
 <Route path='/Home' element={
@@ -42,11 +53,18 @@ function App() {
   </>
 } />
 
-
-      
     </Routes>
+
+
+      {
+        is_select ? (<><MediaPlayer /></>) : (<></>)
+      }
+
+
+     <Footer className="myFooter"/> 
+
     </div>
-    </Provider>
+
     </BrowserRouter>
   );
 }
