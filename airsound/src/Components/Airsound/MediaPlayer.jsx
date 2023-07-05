@@ -3,7 +3,7 @@ import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import { useDispatch, useSelector } from 'react-redux'
 import * as Icon from 'react-icons/ai'
-import { is_select } from '../../Redux/Action/actionAlbum'
+import { is_select, select_track } from '../../Redux/Action/actionAlbum'
 import { createRef } from 'react';
  
 const MediaPlayer=()=> {
@@ -17,15 +17,27 @@ const MediaPlayer=()=> {
 
     const HandlerClick=()=>{
         dispatch(is_select(false))
+        dispatch(select_track(""))
+    }
+    var i=0;
+    
+    console.log(typeof(track?.preview))
+    
+    const checkTipe=(track)=>{
+        if(typeof(track.preview)==="object"){
+            console.log("array",track[i]?.preview)
+            return track[i]?.preview
+        }else{
+            console.log("single",track?.preview)
+            return track?.preview
+        }
     }
 
-    const tracks=[track.preview,"https://cdns-preview-5.dzcdn.net/stream/c-5ab7293f3dd967191594572f52bfd55e-9.mp3"]
-    var i=0;
-    var currentTrack=tracks[i];
-  
+    var currentTrack= checkTipe(track);
+    
     const HandlerNext=()=>{
-        if(i!==tracks.length){
-            currentTrack=tracks[++i]
+        if(i!==track.length){
+            currentTrack=track[++i]?.preview
             music.forEach(e=> e.setAttribute("src",currentTrack))
 
         }else{

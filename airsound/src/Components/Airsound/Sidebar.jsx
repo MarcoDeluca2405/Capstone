@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const Sidebar = () => {
   const [click, setClick] = useState(false);
   const navigate= useNavigate();
-  const username= useSelector((state)=> state.user.username);
+  const username= useSelector((state)=> state.user.user.username);
 
   return (
     <>
