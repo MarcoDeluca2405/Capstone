@@ -13,16 +13,16 @@ const cover = useSelector((state)=>state.Album.albumSelect2.cover_small)
 
 const dispatch=useDispatch()
 
-const hadlerClick=(track)=>{
+const hadlerClick=(track,cover)=>{
 
     dispatch(is_select(true))
-    dispatch(select_track(track))
+    dispatch(select_track({track,cover:cover}))
 }
-const hadlerClick2=(track)=>{
+const hadlerClick2=(track,cover)=>{
 
     dispatch(is_select(true))
     
-    dispatch(select_track(track))
+    dispatch(select_track({track,cover:cover}))
 }
 
 
@@ -30,7 +30,7 @@ return(
     <>
     <Container className="mb-4">
         <div className="text-end">
-    <Button variant="dark" onClick={()=>hadlerClick(track)}> <h6>Ascolta tutto l'album <Icon.AiFillPlayCircle /> </h6></Button>
+    <Button variant="dark" onClick={()=>hadlerClick(track,cover)}> <h6>Ascolta tutto l'album <Icon.AiFillPlayCircle /> </h6></Button>
 
         </div>
     <ListGroup variant="" horizontal className="my-2">
@@ -47,10 +47,10 @@ return(
             <div>
             
     <ListGroup key={el.id} variant="flush" horizontal className="my-2 trackListItem" >
-          <ListGroup.Item variant="" className="w-25 d-flex item align-items-center justify-content-center" onClick={()=>hadlerClick2(el)}><span> {el.track_position} </span></ListGroup.Item>
-          <ListGroup.Item variant=""className="w-50 d-flex item align-items-center justify-content-center" onClick={()=>hadlerClick2(el)}><img src={cover} style={{width:"50px"}} alt="cover" /></ListGroup.Item>
-          <ListGroup.Item variant="" className="w-100 d-flex item align-items-center justify-content-center"onClick={()=>hadlerClick2(el)}><span>{el.title} </span></ListGroup.Item>
-          <FavoriteComponent props={el} index={i} />
+          <ListGroup.Item variant="" className="w-25 d-flex item align-items-center justify-content-center" onClick={()=>hadlerClick2(el,cover)}><span> {el.track_position} </span></ListGroup.Item>
+          <ListGroup.Item variant=""className="w-50 d-flex item align-items-center justify-content-center" onClick={()=>hadlerClick2(el,cover)}><img src={cover} style={{width:"50px"}} alt="cover" /></ListGroup.Item>
+          <ListGroup.Item variant="" className="w-100 d-flex item align-items-center justify-content-center"onClick={()=>hadlerClick2(el,cover)}><span>{el.title} </span></ListGroup.Item>
+          <FavoriteComponent props={el} cover={cover} index={i} />
 
           <ListGroup.Item variant="dark" className="w-25 d-flex align-items-center justify-content-center"><span>{el.rank} </span></ListGroup.Item>
         </ListGroup>

@@ -48,10 +48,10 @@ return(
     </Col>
 
     <Col>
-    <div class="cards3" onClick={()=>handleClick(album2?.data[1])}>
+    <div class="cards3" onClick={()=>handleClick(album2?.data[3])}>
     <figure class="card3" >
     <img src={album2?.data[2].artist.picture} alt="img_category" className="card3Image"/>
-        <figcaption class="card_title3"><img src={album2?.data[1].artist.picture}  alt="img_category" style={{width:"150px"}}/><span>{album2?.data[0].artist.name}</span> </figcaption>
+        <figcaption class="card_title3"><img src={album2?.data[3].artist.picture}  alt="img_category" style={{width:"150px"}}/><span>{album2?.data[3].artist.name}</span> </figcaption>
     </figure>
     </div>
     </Col>

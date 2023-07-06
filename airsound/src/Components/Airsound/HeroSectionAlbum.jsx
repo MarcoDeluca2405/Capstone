@@ -10,6 +10,7 @@ import {
     MDBRow,
     MDBCol,
   } from "mdb-react-ui-kit";
+
 import { useSelector } from "react-redux";
   
   const HeroSectionAlbum = () => {
@@ -25,7 +26,7 @@ import { useSelector } from "react-redux";
           >
             <MDBTypography tag="h3">
               <MDBCard className="mySizeCard">
-                <MDBRow className="g-0" style={{height:"200px"}}>
+                <MDBRow className="g-0" style={{height:"250px"}}>
                   <MDBCol md="4" className="myCol">
                   
                   <MDBCardImage

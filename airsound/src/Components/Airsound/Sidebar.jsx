@@ -1,13 +1,24 @@
 import { useState } from "react";
 import { Card, Col, Image, Row } from "react-bootstrap";
 import * as IconRi from "react-icons/ri";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { is_select, select_track } from "../../Redux/Action/actionAlbum";
 
 const Sidebar = () => {
   const [click, setClick] = useState(false);
+
+  const dispatch=useDispatch();
+
   const navigate= useNavigate();
   const username= useSelector((state)=> state.user.user.username);
+
+  const footer=document.getElementById("footer")
+
+  const HandlerClick=()=>{
+    dispatch(is_select(false))
+    dispatch(select_track(""))
+}
 
   return (
     <>
@@ -42,16 +53,24 @@ const Sidebar = () => {
 
                   <Col className="pb-2">
                   
-                  <div className="d-flex align-items-end div-effect" >
+                  <div className="d-flex align-items-end div-effect" onClick={()=>navigate("/Fav")} >
                     <IconRi.RiHeart2Fill className="MyColor-Green" /> <span className="MyFont-text">Preferiti</span>
+                  </div> 
+                  
+                  </Col>
+
+                  <Col className="pb-2">
+                  
+                 <div className="d-flex align-items-end div-effect" >
+                    <IconRi.RiSettings5Fill className="MyColor-Green effect-setting" /> <span className="MyFont-text">Settings</span>
                   </div> 
                   
                   </Col>
 
                   <Col>
                     <hr className="pb-0 mb-0 w-100" ></hr>
-                  <div className="d-flex align-items-end div-effect" >
-                    <IconRi.RiSettings5Fill className="MyColor-Green effect-setting" /> <span className="MyFont-text">Settings</span>
+                  <div className="d-flex align-items-end div-effect" onClick={()=>{navigate("/");footer.style="fixed";HandlerClick() }}>
+                    <IconRi.RiLogoutBoxFill className="MyColor-Green " /> <span className="MyFont-text">Logout</span>
                   </div> 
                   
                   </Col>

@@ -13,10 +13,9 @@ const favList=useSelector((state)=>state.Album.trackFav)
 const dispatch=useDispatch();
 
 const isFav=favList?.some((el)=>{
-    console.log(el.id);
+ 
     
-    console.log(el.id===props.props.id)
-    if(el.id===props.props.id){
+    if(el.track.id===props.props.id){
         
        return true
     }else{
@@ -28,9 +27,9 @@ const isFav=favList?.some((el)=>{
 
 
 
-const handleFav=(track)=>{
-   
-    dispatch(tracksAddFav(track))
+const handleFav=(track,cover)=>{
+  
+    dispatch(tracksAddFav({track:track,cover:cover}))
   
   }
   
@@ -54,7 +53,7 @@ return(
 :
 
 (<>
-<ListGroup.Item  onClick={()=>{handleFav(props.props) }} className="w-25 d-flex item align-items-center justify-content-center"><Icon.AiOutlineHeart  size={25}/></ListGroup.Item>
+<ListGroup.Item  onClick={()=>{handleFav(props.props,props.cover) }} className="w-25 d-flex item align-items-center justify-content-center"><Icon.AiOutlineHeart  size={25}/></ListGroup.Item>
 
 
 </>)

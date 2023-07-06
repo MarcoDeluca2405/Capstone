@@ -19,7 +19,7 @@ const ViewAlbumHomeCategory = ()=>{
     const navigate=useNavigate();
 
     useEffect(()=>{
-fetchData("nek").then(data=>setAlbum1(data));
+fetchData("salmo").then(data=>setAlbum1(data));
 fetchData("pitbull").then(data=>setAlbum2(data));
 fetchData("gemitaiz").then(data=>setAlbum3(data));
 fetchData("nayt").then(data=>setAlbum4(data));
@@ -42,7 +42,7 @@ return(
     <div class="cards3" onClick={()=>handleClick(album1?.data[3])}>
     <figure class="card3" >
     <img src={album1?.data[3].artist.picture} alt="img_category" className="card3Image"/>
-        <figcaption class="card_title3"><img src={album1?.data[3].artist.picture}  alt="img_category" style={{width:"150px"}}/><span>{album1?.data[0].artist.name}</span> </figcaption>
+        <figcaption class="card_title3"><img src={album1?.data[3].artist.picture}  alt="img_category" style={{width:"150px"}}/><span>{album1?.data[3].artist.name}</span> </figcaption>
     </figure>
     </div>
 

@@ -24,6 +24,9 @@ import {
 } from "../../Redux/Action/action";
 
 const PageLogin = () => {
+
+  const footer=document.getElementById("footer")
+
   //navigate
   const navigate = useNavigate();
 
@@ -102,8 +105,10 @@ const notifyError = () =>   toast.error('qualcosa è andato storto', {
             dispatch(add_role(data2.roles));
             dispatch(meteoNEWS(data2.adress.città));
        
-            
-            setTimeout(()=>navigate("/home"),4000);
+            setTimeout(()=>{
+              navigate("/home")
+              footer.style.position="relative"
+            },4000);
           }
         } catch (error) {}
       } else {
@@ -113,7 +118,9 @@ const notifyError = () =>   toast.error('qualcosa è andato storto', {
   };
 
   return (
-    <Container className="d-flex justify-content-center box-center my-5 p-5">
+    
+
+    <Container className="d-flex justify-content-center box-center my-5 p-4 ">
       <div className="cardfill">
         <div className="card2fill">
           <form
@@ -121,7 +128,7 @@ const notifyError = () =>   toast.error('qualcosa è andato storto', {
             onSubmit={(e) => {
               fetchUser(e);
             }}
-          >
+            >
             <p id="heading">Login</p>
             <div className="field">
               <img src={mySvg} width="20px" alt="img svg" />
@@ -132,7 +139,7 @@ const notifyError = () =>   toast.error('qualcosa è andato storto', {
                 placeholder="Username"
                 autocomplete="off"
                 onChange={handleChange}
-              />
+                />
             </div>
             <div className="field">
               <svg
@@ -142,7 +149,7 @@ const notifyError = () =>   toast.error('qualcosa è andato storto', {
                 width="16"
                 xmlns="http://www.w3.org/2000/svg"
                 className="input-icon"
-              >
+                >
                 <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path>
               </svg>
               <input
@@ -151,7 +158,7 @@ const notifyError = () =>   toast.error('qualcosa è andato storto', {
                 className="input-field"
                 placeholder="Password"
                 onChange={handleChange}
-              />
+                />
             </div>
             <div className="btn">
               <Button type="submit" className="button1 btn-sm">
@@ -160,7 +167,7 @@ const notifyError = () =>   toast.error('qualcosa è andato storto', {
               <Button
                 className="button2 btn-sm"
                 onClick={() => navigate("/Sing-up")}
-              >
+                >
                 Sign Up
               </Button>
             </div>
@@ -169,6 +176,7 @@ const notifyError = () =>   toast.error('qualcosa è andato storto', {
       </div>
       <ToastContainer />
     </Container>
+           
   );
 };
 

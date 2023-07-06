@@ -227,10 +227,9 @@
   color: rgb(0, 255, 200);
 }
 
-.footer{
-
+#footer{
+  position: fixed;
   bottom: 0; 
-
   width: 100%;
 }
 
@@ -545,6 +544,8 @@ background: linear-gradient(155deg, rgba(3,18,21,0.9598214285714286) 0%, rgba(60
 .myMediaPlayer{
   position: sticky;
   margin: auto;
+  padding-right: 100px;
+  padding-bottom: 15px;
   bottom: 0px;
   z-index: 1;
 }
@@ -570,4 +571,171 @@ background: linear-gradient(180deg, rgba(3,18,21,0.9598214285714286) 0%, rgba(25
 
 .rhap_background-color{
   background-color: #00ff75;
+}
+
+
+
+/* wheater card*/
+
+.cardm {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 46.64%;
+  left: 50%;
+}
+
+.cardW {
+  position: absolute;
+  width: 250px;
+  height: 100px;
+  border-radius: 25px;
+  background: whitesmoke;
+  color: black;
+  z-index: 2;
+  -webkit-transition: .4s ease-in-out;
+  transition: .4s ease-in-out;
+}
+
+.weather {
+  position: relative;
+  margin: 0em;
+  left: -3em;
+}
+
+.main {
+  font-size: 2em;
+  position: relative;
+  top: -3em;
+  left: 2.3em;
+}
+
+.mainsub {
+  position: relative;
+  top: -10.2em;
+  left: 8em;
+  font-size: 0.6em;
+}
+
+.cardW2 {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 240px;
+  height: 100px;
+  border-radius: 35px;
+  background: white;
+  z-index: 1;
+  -webkit-transition: .4s ease-in-out;
+  transition: .4s ease-in-out;
+}
+
+.cardW:hover {
+  background-color: #FFE87C;
+  cursor: pointer;
+}
+
+.cardW:hover + .cardW2 {
+  height: 220px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.cardW:hover + .cardW2 .lower {
+  top: 14.2em;
+}
+
+.upper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  position: relative;
+  color: black;
+  left: 0em;
+  top: 0.5em;
+  gap: 4em;
+}
+
+.humiditytext {
+  position: relative;
+  left: 3.6em;
+  top: 2.7em;
+  font-size: 0.6em;
+}
+
+.airtext {
+  position: relative;
+  left: 3.8em;
+  top: 2.7em;
+  font-size: 0.6em;
+}
+
+.lower {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  position: absolute;
+  text-align: center;
+  color: black;
+  left: 3em;
+  top: 1em;
+  margin-top: 0.7em;
+  font-size: 0.7em;
+  -webkit-transition: .4s ease-in-out;
+  transition: .4s ease-in-out;
+}
+
+.aqi {
+  margin-right: 3.25em;
+}
+
+.realfeel {
+  margin-right: 1.8em;
+}
+
+.cardW3 {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 240px;
+  height: 30px;
+  top: 4.7em;
+  left: -2.4em;
+  font-size: 1.24em;
+  border-bottom-left-radius: 35px;
+  border-bottom-right-radius: 35px;
+  background: limegreen;
+  -webkit-transition: .4s ease-in-out;
+  transition: .4s ease-in-out;
 }

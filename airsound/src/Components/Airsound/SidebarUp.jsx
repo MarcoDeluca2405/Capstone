@@ -32,14 +32,6 @@ return(
       <Navbar.Collapse className="justify-content-end">
         <Navbar.Text className="text-light">
          
-          <span>
-            {citta}: {temp} °C  
-           
-            
-             <img src={`http://openweathermap.org/img/w/${weather}.png`} alt="icon meteo" />
-
-           
-            </span>
 
         </Navbar.Text>
       </Navbar.Collapse>

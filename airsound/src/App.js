@@ -12,6 +12,9 @@ import TracksPage from './Components/Airsound/TracksPage';
 import MediaPlayer from './Components/Airsound/MediaPlayer';
 import Footer from './Components/Airsound/Footer';
 import SideBarUpInizial from './Components/Airsound/SidebarUp/Login/SideBarUpInizial';
+import PreferitoPage from './Components/Airsound/PreferitoPage';
+
+
 
 
 function App() {
@@ -21,7 +24,7 @@ function App() {
   return (
     <BrowserRouter>
     
-    <div className="App vh-100">
+    <div className="App">
    
     <Routes>
 
@@ -36,6 +39,7 @@ function App() {
   <>
   <SideBarUpInizial />
   <PageRegister />
+ 
   </>
 }></Route>
 
@@ -51,6 +55,10 @@ function App() {
   <>
 <TracksPage />
   </>
+} />
+
+<Route path='/Fav' element={
+  <PreferitoPage />
 } />
 
     </Routes>
