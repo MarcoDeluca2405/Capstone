@@ -18,7 +18,7 @@ const Homepage = () => {
   return (
     <>
     <SidebarUp />
-      <Weather />
+      
       <Row className="my-4 pb-5 m-0">
         <Sidebar />
 
