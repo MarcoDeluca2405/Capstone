@@ -588,20 +588,21 @@ background: linear-gradient(180deg, rgba(3,18,21,0.9598214285714286) 0%, rgba(25
   position: relative;
   left: 0px;
   height: 70px;
-  background: rgb(58,117,180);
-background: linear-gradient(90deg, rgba(58,117,180,0.9850315126050421) 0%, rgba(29,253,158,0.9682247899159664) 50%, rgba(252,245,69,0.9542191876750701) 100%);
+  background: rgb(0,0,0);
+  background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(180,180,180,0.9346113445378151) 100%);
+  color: whitesmoke;
 }
 
 
 .cardStatus{
   position: relative;
   top: -70px;
-  
+  color: whitesmoke;
   width: 70%;
   z-index: 1;
   height: 70px;
-  background: rgb(37,255,0);
-background: linear-gradient(90deg, rgba(37,255,0,0.90015756302521) 0%, rgba(29,253,252,0.7357317927170868) 40%, rgba(30,253,146,0.7245273109243697) 76%, rgba(252,252,69,0.7637429971988796) 100%);
+  background: rgb(162,162,162);
+  background: linear-gradient(0deg, rgba(162,162,162,1) 0%, rgba(0,0,0,0.9346113445378151) 100%);
 }
 
 
@@ -637,11 +638,12 @@ background: linear-gradient(90deg, rgba(37,255,0,0.90015756302521) 0%, rgba(29,2
 
 .cardHealth{
   position: absolute;
-z-index:1;
-right: 210px;
+z-index:-1;
+right: 220px;
+color: rgb(167, 166, 166);
 bottom: -1px;
 writing-mode: vertical-lr;
 height: 70px;
-background: rgb(34,193,195);
-background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(45,253,99,1) 100%);
+background: rgb(33,32,32);
+background: linear-gradient(0deg, rgba(33,32,32,1) 0%, rgba(131,131,131,0.6909138655462185) 49%, rgba(0,0,0,0.9346113445378151) 100%);
 }

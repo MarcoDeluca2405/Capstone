@@ -13,6 +13,7 @@ import MediaPlayer from './Components/Airsound/MediaPlayer';
 import Footer from './Components/Airsound/Footer';
 import SideBarUpInizial from './Components/Airsound/SidebarUp/Login/SideBarUpInizial';
 import PreferitoPage from './Components/Airsound/PreferitoPage';
+import PageSearch from './Components/Airsound/PageSearch';
 
 
 
@@ -59,6 +60,10 @@ function App() {
 
 <Route path='/Fav' element={
   <PreferitoPage />
+} />
+
+<Route path="pageSearch" element={
+  <PageSearch />
 } />
 
     </Routes>

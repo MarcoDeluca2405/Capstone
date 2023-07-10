@@ -15,7 +15,7 @@ const dispatch=useDispatch();
 const isFav=favList?.some((el)=>{
  
     
-    if(el.track?.id===props.props.id){
+    if(el.track?.id===props.props?.id){
         
        return true
     }else{

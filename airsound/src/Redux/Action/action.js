@@ -1,4 +1,4 @@
-import { getClub, getDance, getHipHop, getPop, getPunk, getReB, getRock } from "./actionAlbum";
+
 
 export const ADD_NAME="ADD_NAME";
 export const ADD_LASTNAME="ADD_LASTNAME";
@@ -11,6 +11,12 @@ export const ADD_PROVINCIA="ADD_PROVINCIA";
 export const ADD_CITY="ADD_CITY";
 export const ADD_METEO="ADD_METEO";
 export const ADD_TOKEN_MUSIC="ADD_TOKEN_MUSIC";
+export const ADD_TEXT="ADD_TEXT";
+
+export const add_text=(text)=>({
+    type:ADD_TEXT,
+    payload:text
+})
 
 export const add_name=(name)=>({
     type:ADD_NAME,

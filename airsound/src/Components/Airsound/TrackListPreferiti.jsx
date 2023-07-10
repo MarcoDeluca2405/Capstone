@@ -7,7 +7,7 @@ import SidebarUp from "./SidebarUp"
 
 const TrackListPreferiti=()=>{
 
-    const track=useSelector((state)=>state.Album.trackFav)
+    const track=useSelector((state)=>state.Album?.trackFav)
 
     const dispatch=useDispatch();
 
@@ -43,13 +43,13 @@ const TrackListPreferiti=()=>{
 
                <div>
             
-    <ListGroup key={el.track.id} variant="flush" horizontal className="my-2 trackListItem" >
-          <ListGroup.Item variant="" className="w-25 d-flex item align-items-center justify-content-center" onClick={()=>hadlerClick2(el.track,el.cover)}><span> {el.track.track_position} </span></ListGroup.Item>
+    <ListGroup key={el.track?.id} variant="flush" horizontal className="my-2 trackListItem" >
+          <ListGroup.Item variant="" className="w-25 d-flex item align-items-center justify-content-center" onClick={()=>hadlerClick2(el.track,el.cover)}><span> {el.track?.track_position} </span></ListGroup.Item>
           <ListGroup.Item variant=""className="w-50 d-flex item align-items-center justify-content-center" onClick={()=>hadlerClick2(el.track,el.cover)}><img src={el.cover} style={{width:"50px"}} alt="cover" /></ListGroup.Item>
-          <ListGroup.Item variant="" className="w-100 d-flex item align-items-center justify-content-center"onClick={()=>hadlerClick2(el.track,el.cover)}><span>{el.track.title} </span></ListGroup.Item>
+          <ListGroup.Item variant="" className="w-100 d-flex item align-items-center justify-content-center"onClick={()=>hadlerClick2(el.track,el.cover)}><span>{el.track?.title} </span></ListGroup.Item>
          { <FavoriteComponent props={el.track} cover={el.cover} index={i} /> 
          }
-          <ListGroup.Item variant="dark" className="w-25 d-flex align-items-center justify-content-center"><span>{el.track.rank} </span></ListGroup.Item>
+          <ListGroup.Item variant="dark" className="w-25 d-flex align-items-center justify-content-center"><span>{el.track?.rank} </span></ListGroup.Item>
         </ListGroup>
             
             </div>
