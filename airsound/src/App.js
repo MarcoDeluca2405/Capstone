@@ -23,6 +23,7 @@ function App() {
   const is_select=useSelector((state)=>state.Album.isSelect)
 
   return (
+    <>
     <BrowserRouter>
     
     <div className="App">
@@ -74,11 +75,12 @@ function App() {
       }
 
 
-     <Footer className="myFooter"/> 
 
     </div>
 
     </BrowserRouter>
+     <Footer className="myFooter"/> 
+      </>
   );
 }
 

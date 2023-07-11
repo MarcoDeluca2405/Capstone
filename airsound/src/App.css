@@ -228,8 +228,8 @@
 }
 
 #footer{
-  position: fixed;
-  bottom: 0; 
+  position: absolute; 
+  bottom: 0 auto;
   width: 100%;
 }
 
@@ -647,3 +647,10 @@ height: 70px;
 background: rgb(33,32,32);
 background: linear-gradient(0deg, rgba(33,32,32,1) 0%, rgba(131,131,131,0.6909138655462185) 49%, rgba(0,0,0,0.9346113445378151) 100%);
 }
+
+
+
+.list-group .list-group-item {
+  border: none;
+}
+

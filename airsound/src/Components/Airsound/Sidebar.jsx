@@ -4,6 +4,7 @@ import * as IconRi from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { is_select, select_track } from "../../Redux/Action/actionAlbum";
+import { add_text } from "../../Redux/Action/action";
 
 const Sidebar = () => {
   const [click, setClick] = useState(false);
@@ -18,6 +19,7 @@ const Sidebar = () => {
   const HandlerClick=()=>{
     dispatch(is_select(false))
     dispatch(select_track(""))
+    dispatch(add_text(""))
 }
 
   return (
@@ -45,7 +47,7 @@ const Sidebar = () => {
 
                   <Col className="pb-2">
                   
-                  <div className="d-flex align-items-end div-effect" onClick={()=>navigate("/home")} >
+                  <div className="d-flex align-items-end div-effect" onClick={()=>{navigate("/home");dispatch(add_text(""))}} >
                     <IconRi.RiHome5Fill className="MyColor-Green" /> <span className="MyFont-text">Home</span>
                   </div> 
                   
@@ -53,7 +55,7 @@ const Sidebar = () => {
 
                   <Col className="pb-2">
                   
-                  <div className="d-flex align-items-end div-effect" onClick={()=>navigate("/Fav")} >
+                  <div className="d-flex align-items-end div-effect" onClick={()=>{navigate("/Fav");dispatch(add_text(""))}} >
                     <IconRi.RiHeart2Fill className="MyColor-Green" /> <span className="MyFont-text">Preferiti</span>
                   </div> 
                   

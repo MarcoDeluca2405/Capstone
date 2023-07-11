@@ -46,7 +46,7 @@ return(
         return(
             <div>
             
-    <ListGroup key={el.id} variant="flush" horizontal className="my-2 trackListItem" >
+    <ListGroup key={el.id} variant="" horizontal className="my-2 trackListItem" >
           <ListGroup.Item variant="" className="w-25 d-flex item align-items-center justify-content-center" onClick={()=>hadlerClick2(el,cover)}><span> {el.track_position} </span></ListGroup.Item>
           <ListGroup.Item variant=""className="w-50 d-flex item align-items-center justify-content-center" onClick={()=>hadlerClick2(el,cover)}><img src={cover} style={{width:"50px"}} alt="cover" /></ListGroup.Item>
           <ListGroup.Item variant="" className="w-100 d-flex item align-items-center justify-content-center"onClick={()=>hadlerClick2(el,cover)}><span>{el.title} </span></ListGroup.Item>

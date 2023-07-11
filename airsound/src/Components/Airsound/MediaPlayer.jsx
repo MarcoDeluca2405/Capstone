@@ -6,6 +6,7 @@ import * as Icon from 'react-icons/ai'
 import { is_select, next_title, select_track } from '../../Redux/Action/actionAlbum'
 import { createRef, useEffect, useState } from 'react';
 import { persistor } from '../../Redux/Store/store';
+import { add_text } from '../../Redux/Action/action';
  
 const MediaPlayer=()=> {
 
@@ -35,7 +36,7 @@ const MediaPlayer=()=> {
         console.log("sono currentTrack:", currentTrack?.title);
       }, [track]);
 
-    window.addEventListener("unload",()=>{HandlerClick()})
+    window.addEventListener("unload",()=>{HandlerClick();dispatch(add_text(""))})
     
     
     const checkTipe = (track) => {

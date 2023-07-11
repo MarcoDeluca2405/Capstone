@@ -25,7 +25,7 @@ import {
 
 const PageLogin = () => {
 
-  const footer=document.getElementById("footer")
+ 
 
   //navigate
   const navigate = useNavigate();
@@ -107,7 +107,7 @@ const notifyError = () =>   toast.error('qualcosa è andato storto', {
        
             setTimeout(()=>{
               navigate("/home")
-              footer.style.position="relative"
+              
             },4000);
           }
         } catch (error) {}
