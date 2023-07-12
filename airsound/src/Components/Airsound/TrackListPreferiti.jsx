@@ -6,12 +6,15 @@ import SidebarUp from "./SidebarUp"
 import { add_text } from "../../Redux/Action/action"
 import { useNavigate } from "react-router-dom"
 import { fetchData, fetchDataAlbum, fetchDataSearchNamed } from "../../js/fetchDataDeenzer"
+import { useState } from "react"
 
 
 const TrackListPreferiti=()=>{
 
     const track=useSelector((state)=>state.Album?.trackFav)
     const album= useSelector((state)=>state.Album.albumSelect2)
+
+    const [tracks,setTracks] = useState();
 
     const dispatch=useDispatch();
 
@@ -35,17 +38,8 @@ fetchData(artist.name).then(data=>dispatch(select_album(data.data[0])))
         dispatch(select_track({track,cover:cover}))
     }
 
+  
 
-   //una volta trovato il titolo del nome fare una fetch che riporta tutto il track
-    const hadleClick3=(track)=>{
-        fetchDataSearchNamed(track.title).then(data=>dispatch(select_album2(data.data[0])));
-            console.log(album)
-            dispatch(getTracks(album.album.tracklist))
-fetchData(track.artist.name).then(data=>dispatch(select_album(data.data[0])))
-        dispatch(add_text(""))
-        setTimeout(()=>{ navigate("/TracksPage");clearTimeout()},500)
-       
-    }
 
 
     return(
@@ -76,7 +70,7 @@ fetchData(track.artist.name).then(data=>dispatch(select_album(data.data[0])))
     <ListGroup key={el.track?.id} variant="" horizontal className="my-2 trackListItem" >
           <ListGroup.Item variant="" className="w-25 d-flex item align-items-center justify-content-center" onClick={()=>hadlerClick2(el.track,el.cover)}><span> {i} </span></ListGroup.Item>
           <ListGroup.Item variant="" className="w-50 item d-flex align-items-center  justify-content-center" onClick={()=>handleClick(el.track.artist)} ><span> {el.track.artist.name}</span></ListGroup.Item>
-          <ListGroup.Item variant=""className="w-50 d-flex item align-items-center justify-content-center" onClick={()=>hadleClick3(el.track)}><img src={el.cover} style={{width:"50px"}} alt="cover" /></ListGroup.Item>
+          <ListGroup.Item variant=""className="w-50 d-flex item align-items-center justify-content-center" onClick={()=>hadlerClick2(el.track,el.cover)}><img src={el.cover} style={{width:"50px"}} alt="cover" /></ListGroup.Item>
           <ListGroup.Item variant="" className="w-100 d-flex item align-items-center justify-content-center"onClick={()=>hadlerClick2(el.track,el.cover)}><span>{el.track?.title} </span></ListGroup.Item>
          { <FavoriteComponent props={el.track} cover={el.cover} index={i} /> 
          }

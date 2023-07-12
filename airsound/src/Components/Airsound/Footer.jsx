@@ -1,8 +1,45 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon,MDBBtn,MDBInput } from 'mdb-react-ui-kit';
+import { useDispatch, useSelector } from 'react-redux';
+import { meteoNEWS } from '../../Redux/Action/action';
 
 const Footer=()=>{
+  const city =useSelector((state)=>state.user.user.city)
+  
+  
+  var sec=40;
+  var [min,setMin]=useState(0)
+  var hour=0;
+  const dispatch=useDispatch();
 
+
+  
+  useEffect(()=>{
+    setInterval(()=>{
+      sec++
+      if(sec===60){
+        setMin(min++)
+        sec=0;
+      }
+      
+      if(min===60){
+        hour++;
+        setMin(0);
+      }
+      
+      if(hour===24){
+        hour=0
+      }
+      
+      
+      
+      console.log(hour+":"+min+":"+sec);
+    },1000)
+  },[])
+
+  useEffect(()=>{
+    dispatch(meteoNEWS(city))
+  },[min])
   
 return(
 

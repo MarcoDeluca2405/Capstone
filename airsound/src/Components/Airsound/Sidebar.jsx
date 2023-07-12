@@ -63,7 +63,7 @@ const Sidebar = () => {
 
                   <Col className="pb-2">
                   
-                 <div className="d-flex align-items-end div-effect" >
+                 <div className="d-flex align-items-end div-effect" onClick={()=>{navigate("/setting");dispatch(add_text(""))}}>
                     <IconRi.RiSettings5Fill className="MyColor-Green effect-setting" /> <span className="MyFont-text">Settings</span>
                   </div> 
                   

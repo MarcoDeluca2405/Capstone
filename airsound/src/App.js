@@ -14,6 +14,7 @@ import Footer from './Components/Airsound/Footer';
 import SideBarUpInizial from './Components/Airsound/SidebarUp/Login/SideBarUpInizial';
 import PreferitoPage from './Components/Airsound/PreferitoPage';
 import PageSearch from './Components/Airsound/PageSearch';
+import SettingPage from './Components/Airsound/SettingPage';
 
 
 
@@ -65,6 +66,10 @@ function App() {
 
 <Route path="pageSearch" element={
   <PageSearch />
+} />
+
+<Route path="/setting" element={
+<SettingPage />
 } />
 
     </Routes>

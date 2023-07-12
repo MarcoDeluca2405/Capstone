@@ -8,12 +8,12 @@ import CategoryAlbum from "./CategoryAlbum";
 import { Route } from "react-router-dom";
 import HeroSection from "./SidebarUp/HeroSection";
 import Weather from "./Weather";
+import { useSelector } from "react-redux";
 
 
 
 
 const Homepage = () => {
-
 
   return (
     <>

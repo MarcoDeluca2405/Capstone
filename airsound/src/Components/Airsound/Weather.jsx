@@ -1,16 +1,21 @@
 import { Card, CardImg, Col, Container, Row } from "react-bootstrap"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import temp_min from "../../img/temp_min.png"
 import temp_max from "../../img/temp_max.png"
 import pressione from "../../img/pressione.png"
 import umidità from "../../img/umidità.png"
 import speed from "../../img/speed.png"
 import deg from "../../img/deg.png"
+import { meteoNEWS } from "../../Redux/Action/action"
+import { useEffect } from "react"
 
 
 const Weather = ()=>{
 
+  
   const weather=useSelector((state)=>state.user.meteo)
+
+  
 
     return(
 
@@ -18,7 +23,7 @@ const Weather = ()=>{
          
             <div className="event">
 
-            <Card border="primary"  className="mainCard ">
+            <Card border="secondary"  className="mainCard ">
       <Row className="h-100">
         <Col className="h-100 col-7">
         <Container className="h-100">
@@ -30,7 +35,7 @@ const Weather = ()=>{
 
         <Col className="h-100">
 
-        <Card.Body className="h-100"><span>{weather.main.temp}°C</span><p style={{fontSize:"12px"}}>{weather.name}</p></Card.Body>
+        <Card.Body className="h-100"><span className="spanWehater">{weather.main.temp}°C</span><p className="spanWehater" style={{fontSize:"12px"}}>{weather.name}</p></Card.Body>
         
 
         </Col>

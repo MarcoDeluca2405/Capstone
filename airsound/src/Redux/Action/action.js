@@ -7,6 +7,7 @@ export const ADD_EMAIL="ADD_EMAIL";
 export const ADD_PASSWORD="ADD_PASSWORD";
 export const ADD_TOKEN="ADD_TOKEN";
 export const ADD_ROLE="ADD_ROLE";
+export const ADD_STATO="ADD_STATO"
 export const ADD_PROVINCIA="ADD_PROVINCIA";
 export const ADD_CITY="ADD_CITY";
 export const ADD_METEO="ADD_METEO";
@@ -51,6 +52,11 @@ export const add_token=(token)=>({
 export const add_role=(role)=>({
     type:ADD_ROLE,
     payload:role
+})
+
+export const add_stato=(stato)=>({
+    type:ADD_STATO,
+    payload:stato
 })
 
 export const add_provincia=(provincia)=>({

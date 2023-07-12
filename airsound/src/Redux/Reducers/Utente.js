@@ -1,4 +1,4 @@
-import { ADD_CITY, ADD_EMAIL, ADD_LASTNAME, ADD_METEO, ADD_NAME, ADD_PASSWORD, ADD_PROVINCIA, ADD_ROLE, ADD_TEXT, ADD_TOKEN, ADD_TOKEN_MUSIC, ADD_TOKEN_SPOTIFY, ADD_USERNAME } from "../Action/action"
+import { ADD_CITY, ADD_EMAIL, ADD_LASTNAME, ADD_METEO, ADD_NAME, ADD_PASSWORD, ADD_PROVINCIA, ADD_ROLE, ADD_STATO, ADD_TEXT, ADD_TOKEN, ADD_TOKEN_MUSIC, ADD_TOKEN_SPOTIFY, ADD_USERNAME } from "../Action/action"
 
 
 const initialState = {
@@ -10,6 +10,7 @@ const initialState = {
         password: "",
         token: "",
         roles: "",
+        stato:"",
         provincia:"",
         city: ""
     },
@@ -85,6 +86,14 @@ const mainProfile = (state = initialState, action) => {
                 }
             }
 
+        case ADD_STATO:
+            return{
+                ...state,
+                user:{
+                    ...state.user,
+                    stato:action.payload
+                }
+            }
 
         case ADD_PROVINCIA:
             return {

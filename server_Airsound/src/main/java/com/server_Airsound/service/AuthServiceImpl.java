@@ -101,6 +101,26 @@ public class AuthServiceImpl implements AuthService {
         return "User registered successfully!.";
     }
     
+    
+    
+    public String update(RegisterDto registerDto) {
+    		
+    	User user=userRepository.findByUsername(registerDto.getUsername());
+ 
+        user.setName(registerDto.getName());
+        user.setUsername(registerDto.getUsername());
+        user.setEmail(registerDto.getEmail());
+        user.setLastname(registerDto.getLastname());
+        user.setAdress(registerDto.getAdress());
+        user.setPassword(passwordEncoder.encode(registerDto.getPassword()));
+
+      
+        System.out.println(user);
+        userRepository.save(user);
+
+        return "User modify successfully!.";
+    }
+    
     public ERole getRole(String role) {
     	if(role.equals("ADMIN")) return ERole.ROLE_ADMIN;
     	else if(role.equals("MODERATOR")) return ERole.ROLE_MODERATOR;

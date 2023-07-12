@@ -15,6 +15,7 @@ import {
   add_password,
   add_provincia,
   add_role,
+  add_stato,
   add_token,
   add_token_spotify,
   add_username,
@@ -99,12 +100,13 @@ const notifyError = () =>   toast.error('qualcosa è andato storto', {
             dispatch(add_username(data2.username));
             dispatch(add_email(data2.email));
             dispatch(add_password(data2.password));
+            dispatch(add_stato(data2.adress.regione))
             dispatch(add_provincia(data2.adress.territorio));
             dispatch(add_city(data2.adress.città));
             dispatch(add_token(data.accessToken));
             dispatch(add_role(data2.roles));
             dispatch(meteoNEWS(data2.adress.città));
-       
+           
             setTimeout(()=>{
               navigate("/home")
               
