@@ -7,12 +7,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.sql.Blob;
 import java.util.HashSet;
 import java.util.Set;
 
-
-@Setter
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
@@ -32,6 +32,9 @@ public class User {
     private String email;
     @Column(nullable = false)
     private String password;
+    @Lob
+    @Column(name="imagine_profilo")
+    private Blob image;
     
     @ManyToOne
     private Adress adress;

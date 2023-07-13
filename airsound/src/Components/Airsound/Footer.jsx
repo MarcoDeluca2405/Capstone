@@ -7,7 +7,7 @@ const Footer=()=>{
   const city =useSelector((state)=>state.user.user.city)
   
   
-  var sec=40;
+  var sec=0;
   var [min,setMin]=useState(0)
   var hour=0;
   const dispatch=useDispatch();
@@ -28,12 +28,9 @@ const Footer=()=>{
       }
       
       if(hour===24){
-        hour=0
+        hour=0;
       }
       
-      
-      
-      console.log(hour+":"+min+":"+sec);
     },1000)
   },[])
 

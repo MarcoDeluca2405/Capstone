@@ -1,12 +1,16 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Card, Col, Image, Row } from "react-bootstrap";
 import * as IconRi from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { is_select, select_track } from "../../Redux/Action/actionAlbum";
 import { add_text } from "../../Redux/Action/action";
+import { fetchPostImage } from "../../js/fetchDataDeenzer";
 
 const Sidebar = () => {
+
+
+
   const [click, setClick] = useState(false);
 
   const dispatch=useDispatch();
@@ -22,8 +26,25 @@ const Sidebar = () => {
     dispatch(add_text(""))
 }
 
+
+const fileInputRef = useRef(null);
+
+  const handleImageClick = () => {
+    fileInputRef.current.click();
+  };
+
+    const hadleFileChange=(event)=>{
+      const file= event.target.files[0];
+      fetchPostImage(username,file)
+
+    }
+
   return (
     <>
+
+      <input type="file" ref={fileInputRef} id="insert" hidden onChange={(e)=>hadleFileChange(e)} ></input>
+
+
       {click ? (
         <div
         className="ps-0 ms-0 sidebar  slide2 "
@@ -34,11 +55,19 @@ const Sidebar = () => {
               <Col xs="10" className=" bg-dark">
                 <Row className="d-flex  flex-column">
                   <Col className="pt-2 d-none  animationvisibility" id="animated">
+                    
+                  <div className="imgSetting">
+
                     <Image
                       src="https://solarbetsg.com/wp-content/uploads/2021/02/male1-768x767.jpg"
                       style={{ width: "100px" }}
                       roundedCircle
-                    />
+                      onClick={handleImageClick}
+                      />
+                      <IconRi.RiPencilFill  className="pencil border bg-dark border-2 border-dark rounded-circle" color="green" size={25}/>
+                        
+                      </div>
+                      
                     <p className="pt-2 mb-0">Benvenuto: {username}</p>
                     <hr className=" pt-0 mt-0 w-100"></hr>
                   </Col>

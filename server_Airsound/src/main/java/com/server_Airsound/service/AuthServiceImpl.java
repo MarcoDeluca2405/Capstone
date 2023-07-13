@@ -1,7 +1,14 @@
 package com.server_Airsound.service;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Blob;
+import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.sql.rowset.serial.SerialBlob;
+import javax.sql.rowset.serial.SerialException;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -20,6 +27,8 @@ import com.server_Airsound.payload.RegisterDto;
 import com.server_Airsound.repository.RoleRepository;
 import com.server_Airsound.repository.UserRepository;
 import com.server_Airsound.security.JwtTokenProvider;
+
+import jakarta.persistence.NoResultException;
 
 
 
@@ -98,7 +107,7 @@ public class AuthServiceImpl implements AuthService {
         System.out.println(user);
         userRepository.save(user);
 
-        return "User registered successfully!.";
+        return "Utente registrato con successo!.";
     }
     
     
@@ -118,8 +127,44 @@ public class AuthServiceImpl implements AuthService {
         System.out.println(user);
         userRepository.save(user);
 
-        return "User modify successfully!.";
+        return "Utente modificato con successo!.";
     }
+    
+    public String add_image(String username, byte[] image) {
+    	User user=userRepository.findByUsername(username);
+    	Blob imageBlob;
+		try {
+			imageBlob = new SerialBlob(image);
+			user.setImage(imageBlob);
+			userRepository.save(user);
+			return "L'immagine profilo è stato salvato correttamente";
+		} catch (SerialException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+    }
+    
+    public byte[] searchImage(String username) {
+        User user = userRepository.findByUsername(username);
+        if (user != null) {
+            Blob imageBlob = user.getImage();
+            if (imageBlob != null) {
+                try {
+                    int blobLength = (int) imageBlob.length();
+                    return imageBlob.getBytes(1, blobLength);
+                } catch (SQLException e) {
+                    // Gestisci eventuali eccezioni durante l'ottenimento dei byte dell'immagine dal Blob
+                    e.printStackTrace();
+                }
+            }
+        }
+        return null; // Restituisci null se l'immagine non è presente o non è recuperabile
+    }
+
     
     public ERole getRole(String role) {
     	if(role.equals("ADMIN")) return ERole.ROLE_ADMIN;
