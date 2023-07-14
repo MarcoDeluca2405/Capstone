@@ -1,15 +1,16 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Card, Col, Image, Row } from "react-bootstrap";
 import * as IconRi from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { is_select, select_track } from "../../Redux/Action/actionAlbum";
 import { add_text } from "../../Redux/Action/action";
-import { fetchPostImage } from "../../js/fetchDataDeenzer";
+import { fetchGetImage, fetchPostImage } from "../../js/fetchDataDeenzer";
 
 const Sidebar = () => {
 
-
+  const [imageUrl, setImageUrl] = useState(false);
+ 
 
   const [click, setClick] = useState(false);
 
@@ -35,14 +36,19 @@ const fileInputRef = useRef(null);
 
     const hadleFileChange=(event)=>{
       const file= event.target.files[0];
-      fetchPostImage(username,file)
-
+      fetchPostImage(username,file).then(data=>fetchGetImage(username).then((imageBlob)=>setImageUrl(imageBlob)));
     }
+
+
+    useEffect(()=>{
+      fetchGetImage(username).then((imageBlob)=>setImageUrl(imageBlob));
+    },[username])
+  
 
   return (
     <>
 
-      <input type="file" ref={fileInputRef} id="insert" hidden onChange={(e)=>hadleFileChange(e)} ></input>
+      <input type="file" ref={fileInputRef} id="insert" accept="image/*" hidden onChange={(e)=>{hadleFileChange(e); fetchGetImage(username).then((imageBlob)=>setImageUrl(imageBlob))}} ></input>
 
 
       {click ? (
@@ -57,14 +63,38 @@ const fileInputRef = useRef(null);
                   <Col className="pt-2 d-none  animationvisibility" id="animated">
                     
                   <div className="imgSetting">
+              {
+                imageUrl ? (
+                  <>
+                  
+                  <Image
+                  src={imageUrl}
+                  style={{ width: "150px" }}
+                  roundedCircle
+                  onClick={handleImageClick}
+                  />
+                  <IconRi.RiPencilFill  className="pencil border bg-dark border-2 border-dark rounded-circle" color="green" size={25}/>
+                  
+                  </>
 
-                    <Image
-                      src="https://solarbetsg.com/wp-content/uploads/2021/02/male1-768x767.jpg"
-                      style={{ width: "100px" }}
-                      roundedCircle
-                      onClick={handleImageClick}
-                      />
-                      <IconRi.RiPencilFill  className="pencil border bg-dark border-2 border-dark rounded-circle" color="green" size={25}/>
+
+                )    :   
+                
+                
+                (
+                  <>
+                  <Image
+                  src="https://solarbetsg.com/wp-content/uploads/2021/02/male1-768x767.jpg"
+                  style={{ width: "100px" }}
+                  roundedCircle
+                  onClick={handleImageClick}
+                  />
+                  <IconRi.RiPencilFill  className="pencil border bg-dark border-2 border-dark rounded-circle" color="green" size={25}/>
+                  </>
+                  )
+
+              }
+                    
                         
                       </div>
                       

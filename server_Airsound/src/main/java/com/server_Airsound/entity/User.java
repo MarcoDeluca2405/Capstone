@@ -32,9 +32,9 @@ public class User {
     private String email;
     @Column(nullable = false)
     private String password;
-    @Lob
+    
     @Column(name="imagine_profilo")
-    private Blob image;
+    private byte[] image;
     
     @ManyToOne
     private Adress adress;

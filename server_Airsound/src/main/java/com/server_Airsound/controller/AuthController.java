@@ -6,9 +6,11 @@ import java.sql.Blob;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -68,29 +70,25 @@ public class AuthController {
     
     @PostMapping("/{username}/immagine")
     public ResponseEntity<String> addImage(@PathVariable String username,@RequestParam("file") MultipartFile image){
-    	try {
-			return ResponseEntity.ok(service.add_image(username, image.getBytes()));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
+    	return ResponseEntity.ok(service.add_image(username, image));
+	
     }
     
-    @GetMapping(value = "/api/auth/me/image", params = {"username"}, produces = MediaType.IMAGE_JPEG_VALUE)
-    public ResponseEntity<byte[]> viewImage(@RequestParam String username) {
-        try {
-            byte[] imageData = service.searchImage(username);
-            if (imageData != null) {
-                return ResponseEntity.ok().body(imageData);
-            } else {
-                // Restituisci una risposta di errore se l'immagine non è presente per l'utente
-                return ResponseEntity.notFound().build();
-            }
-        } catch (Exception e) {
-            // Gestisci eventuali eccezioni e restituisci una risposta di errore
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
+
+    @PutMapping("/{username}/immagine")
+    public ResponseEntity<String> updateImage(@PathVariable String username, @RequestParam("file") MultipartFile image) {
+        String result = service.updateImage(username, image);
+        return ResponseEntity.ok(result);
+    }
+    
+    @GetMapping(value = "/me/image", params = {"username"}, produces = {MediaType.IMAGE_JPEG_VALUE , MediaType.IMAGE_PNG_VALUE})
+    public ResponseEntity<InputStreamResource> viewImage(@RequestParam String username) {
+       return service.searchImage(username);
+    }
+    
+    @GetMapping(value=("/me/isImage"), params= {"username"})
+    public ResponseEntity<Boolean> isImagine(@RequestParam String username){
+    	return ResponseEntity.ok(service.existImage(username));
     }
     
 }
