@@ -15,12 +15,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchData } from "../../../js/fetchDataDeenzer";
 import { useNavigate } from "react-router-dom";
 import { select_album } from "../../../Redux/Action/actionAlbum";
+import { Card, Col, Container, Row } from "react-bootstrap";
 
   const HeroSection = () => {
 
     const [album1,setAlbum1] = useState();
 
-     useEffect(()=>{fetchData("Lorenzo Fragola").then(data=>setAlbum1(data))},[])
+     useEffect(()=>{fetchData("Lorenzo Fragola").then(data=>setAlbum1(data[0]))},[])
     
 
     const dispatch=useDispatch();
@@ -33,40 +34,28 @@ import { select_album } from "../../../Redux/Action/actionAlbum";
 
 
     return (
-      <>
-        <MDBContainer className="mt-5 mb-5" style={{cursor:"pointer"}} onClick={()=>handleClick(album1?.data[3])}>
-          <div
-            className="p-4 pb-1 shadow-4 rounded-3 w-75 d-inline-block myHero"
-           
-          >
-            <MDBTypography tag="h3">
-              <MDBCard className="mySizeCard">
-                <MDBRow className="g-0" style={{height:"250px"}}>
-                  <MDBCol md="4" className="myCol">
-                  
-                  <MDBCardImage
-                    src={album1?.data[3].artist.picture_big}
-                    alt="..."
-                    fluid
-                    className="myImageSet"
-                  />
-                    
-                    
-                  </MDBCol>
-                  <MDBCol md="8">
-                    <MDBCardBody className="h-100 d-flex flex-column bg-secondary  justify-content-center ">
-                      <MDBCardTitle className="title mytext2">{album1?.data[3].artist.name}</MDBCardTitle>
-                        <span style={{fontSize:"20px"}}>Lorenzo Fragola (Catania, 26 aprile 1995) è un cantautore italiano, divenuto noto dopo aver vinto l'ottava edizione del talent show X Factor.</span></MDBCardBody>
-                  </MDBCol>
-                </MDBRow>
-              </MDBCard>
-            </MDBTypography>
-  
-            <hr className="my-4" />
-  
-          </div>
-        </MDBContainer>
-      </>
+      <Container className="mt-4" onClick={()=>handleClick(album1)}>
+
+      <Card style={{ width: '100%' }} className="myHero text-light">
+        <Row className="g-0">
+      <Col sx={12} md={4}>
+      <Card.Img variant="top" src={album1?.album.cover_big} />
+      </Col>
+      <Col sx={12} md={8} >
+
+      <Card.Body>
+        <Card.Title>Lorenzo Fragola</Card.Title>
+        <Card.Text>
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
+        </Card.Text>
+       
+      </Card.Body>
+      </Col>
+        </Row>
+        <Card.Footer></Card.Footer>
+    </Card>
+      </Container>
     );
   };
   

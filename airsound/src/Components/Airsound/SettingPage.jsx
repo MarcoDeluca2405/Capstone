@@ -13,7 +13,7 @@ const SettingPage = () =>{
     
     <SidebarUp />
 
-      <Row className="mt-3 m-0">
+      <Row className="mt-3 m-0 pb-5 mb-3">
         <Sidebar />
         
         <Col>

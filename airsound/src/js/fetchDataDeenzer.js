@@ -102,3 +102,19 @@ export const fetchDataSearchNamed= async (name)=>{
     }
   }
 
+
+  export const fetchIsImage= async(username)=>{
+
+    try {
+      const image = await fetch('http://localhost:8080/api/auth/me/isImage?username='+username)
+
+      if(image.ok){
+        const data= await image.json();
+        return data;
+      }
+      
+    } catch (error) {
+      console.log(error)
+    }
+
+  }

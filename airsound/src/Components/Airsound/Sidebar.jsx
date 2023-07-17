@@ -5,19 +5,21 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { is_select, select_track } from "../../Redux/Action/actionAlbum";
 import { add_text } from "../../Redux/Action/action";
-import { fetchGetImage, fetchPostImage } from "../../js/fetchDataDeenzer";
+import { fetchGetImage, fetchIsImage, fetchPostImage } from "../../js/fetchDataDeenzer";
 
 const Sidebar = () => {
 
-  const [imageUrl, setImageUrl] = useState(false);
- 
+  const username= useSelector((state)=> state.user.user.username);
 
+  const [imageUrl, setImageUrl] = useState();
+ 
+  const [isImage,setIsImage] = useState(false);
+  
   const [click, setClick] = useState(false);
 
   const dispatch=useDispatch();
 
   const navigate= useNavigate();
-  const username= useSelector((state)=> state.user.user.username);
 
   const footer=document.getElementById("footer")
 
@@ -36,12 +38,14 @@ const fileInputRef = useRef(null);
 
     const hadleFileChange=(event)=>{
       const file= event.target.files[0];
-      fetchPostImage(username,file).then(data=>fetchGetImage(username).then((imageBlob)=>setImageUrl(imageBlob)));
+      fetchPostImage(username,file).then(data=>fetchGetImage(username).then((imageBlob)=>setImageUrl(imageBlob)).then(fetchIsImage(username).then(response=>setIsImage(response))));
+      
     }
 
 
     useEffect(()=>{
       fetchGetImage(username).then((imageBlob)=>setImageUrl(imageBlob));
+      fetchIsImage(username).then(response=>setIsImage(response))
     },[username])
   
 
@@ -64,18 +68,20 @@ const fileInputRef = useRef(null);
                     
                   <div className="imgSetting">
               {
-                imageUrl ? (
-                  <>
+                isImage ===true ? (
                   
+               
+                  <>
                   <Image
                   src={imageUrl}
-                  style={{ width: "150px" }}
-                  roundedCircle
                   onClick={handleImageClick}
+                  className="imageProfile"
                   />
                   <IconRi.RiPencilFill  className="pencil border bg-dark border-2 border-dark rounded-circle" color="green" size={25}/>
-                  
                   </>
+                  
+                  
+                  
 
 
                 )    :   
@@ -85,8 +91,7 @@ const fileInputRef = useRef(null);
                   <>
                   <Image
                   src="https://solarbetsg.com/wp-content/uploads/2021/02/male1-768x767.jpg"
-                  style={{ width: "100px" }}
-                  roundedCircle
+                  className="imageProfile"
                   onClick={handleImageClick}
                   />
                   <IconRi.RiPencilFill  className="pencil border bg-dark border-2 border-dark rounded-circle" color="green" size={25}/>

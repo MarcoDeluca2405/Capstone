@@ -24,7 +24,7 @@ const Weather = ()=>{
             <div className="event">
 
             <Card border="secondary"  className="mainCard ">
-      <Row className="h-100">
+      <Row className="h-100 w-100">
         <Col className="h-100 col-7">
         <Container className="h-100">
       <Card.Img  style={{height:"100%",width:"55%"}}  src={" https://openweathermap.org/img/wn/"+weather.weather[0].icon+".png"}></Card.Img>
