@@ -21,7 +21,7 @@ import { Card, Col, Container, Row } from "react-bootstrap";
 
     const [album1,setAlbum1] = useState();
 
-     useEffect(()=>{fetchData("Lorenzo Fragola").then(data=>setAlbum1(data[0]))},[])
+     useEffect(()=>{fetchData("Lorenzo Fragola").then(data=>setAlbum1(data.data[1]))},[])
     
 
     const dispatch=useDispatch();
@@ -34,20 +34,21 @@ import { Card, Col, Container, Row } from "react-bootstrap";
 
 
     return (
-      <Container className="mt-4" onClick={()=>handleClick(album1)}>
+      <Container className="mt-4" >
 
       <Card style={{ width: '100%' }} className="myHero text-light">
         <Row className="g-0">
       <Col sx={12} md={4}>
-      <Card.Img variant="top" src={album1?.album.cover_big} />
+      
+      <Card.Img variant="top" className="py-3" src={album1?.artist.picture_big}  style={{maxWidth:"250px"}}/>
+
       </Col>
       <Col sx={12} md={8} >
 
       <Card.Body>
-        <Card.Title>Lorenzo Fragola</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
+        <Card.Title>{album1?.artist.name}</Card.Title>
+        <Card.Text scr className="pt-3 mt-4 myTextHerosection">
+        Nel 2013 ha partecipato ai casting della settima edizione del talent show X Factor, venendo scartato ai provini preliminari. Durante l'estate del 2014 ha partecipato nuovamente alle audizioni di X Factor, riuscendo ad accedere alle fasi successive ed entrare a far parte della categoria Uomini 16-24 del rapper Fedez. Il 4 dicembre 2014 viene pubblicato il suo singolo di debutto The Reason Why, certificato dalla FIMI prima disco d'oro in 5 giorni e dopo doppio disco di platino, stabilendo così un primato assoluto all'interno del programma.
         </Card.Text>
        
       </Card.Body>
