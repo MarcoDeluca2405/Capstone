@@ -21,7 +21,63 @@ import SettingPage from './Components/Airsound/SettingPage';
 
 function App() {
 
+  
+
   const is_select=useSelector((state)=>state.Album.isSelect)
+
+  
+
+  var hideTimeout; 
+  var isScrolling = false; 
+
+
+  function showScrollbar() {
+    document.documentElement.style.overflowY = "scroll";
+    document.documentElement.style.overflowX="hidden";
+  }
+
+  
+  function hideScrollbar() {
+    document.documentElement.style.overflowY = "hidden";
+  }
+
+  
+  function startHideTimer() {
+    document.documentElement.style.overflowX="hidden";
+    hideTimeout = setTimeout(function() {
+      hideScrollbar();
+      isScrolling = false;
+    }, 1000); 
+  }
+
+
+  function handleScroll() {
+    if (!isScrolling) {
+      isScrolling = true;
+      showScrollbar();
+    }
+
+    clearTimeout(hideTimeout);
+    startHideTimer();
+  }
+
+
+  function handleWheel() {
+    if (!isScrolling) {
+      showScrollbar();
+      clearTimeout(hideTimeout);
+      startHideTimer();
+    }
+  }
+
+ 
+  document.addEventListener("scroll", handleScroll);
+
+
+  document.addEventListener("wheel", handleWheel);
+
+  
+  startHideTimer();
 
   return (
    

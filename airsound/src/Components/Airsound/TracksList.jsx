@@ -28,25 +28,28 @@ const hadlerClick2=(track,cover)=>{
 
 return(
     <>
-    <Container className="mb-4">
-        <div className="text-end">
+    <Container  className="mb-4">
+        <div className="text-end my-3">
     <Button variant="dark" onClick={()=>hadlerClick(track,cover)}> <h6>Ascolta tutto l'album <Icon.AiFillPlayCircle /> </h6></Button>
 
         </div>
-    <ListGroup variant="" horizontal className="my-2">
+   
+
+    <ListGroup horizontal className="my-2 w-100 container-fluid">
           <ListGroup.Item variant="dark" className="w-25 d-flex align-items-center  justify-content-center" ><span> Position</span></ListGroup.Item>
           <ListGroup.Item variant="dark"className="w-50 d-flex align-items-center justify-content-center"> <span className="text-center">Cover</span></ListGroup.Item>
           <ListGroup.Item variant="dark" className="w-100 d-flex align-items-center justify-content-center"><span>Title</span></ListGroup.Item>
           <ListGroup.Item variant="dark" className="w-25 d-flex align-items-center justify-content-center"><span>Like </span></ListGroup.Item>
           <ListGroup.Item variant="dark" className="w-25 d-flex align-items-center justify-content-center"><span>Rank </span></ListGroup.Item>
         </ListGroup>
+ 
 
     {track?.map((el,i)=>{
 
         return(
             <div>
             
-    <ListGroup key={el.id} variant="" horizontal className="my-2 trackListItem" >
+    <ListGroup key={el.id}  horizontal  className="my-2 trackListItem container-fluid w-100" >
           <ListGroup.Item variant="" className="w-25 d-flex item align-items-center justify-content-center" onClick={()=>hadlerClick2(el,cover)}><span> {el.track_position} </span></ListGroup.Item>
           <ListGroup.Item variant=""className="w-50 d-flex item align-items-center justify-content-center" onClick={()=>hadlerClick2(el,cover)}><img src={cover} style={{width:"50px"}} alt="cover" /></ListGroup.Item>
           <ListGroup.Item variant="" className="w-100 d-flex item align-items-center justify-content-center"onClick={()=>hadlerClick2(el,cover)}><span>{el.title} </span></ListGroup.Item>

@@ -458,6 +458,8 @@ background: linear-gradient(90deg, rgba(2,0,36,0.9990371148459384) 0%, rgba(113,
 
 .cards3 {
   perspective: 500px;
+  display: flex;
+  justify-content: center;
 }
 
 .card3 {
@@ -471,6 +473,7 @@ background: linear-gradient(90deg, rgba(2,0,36,0.9990371148459384) 0%, rgba(113,
   will-change: transform;
   transition: transform .5s;
   cursor: pointer;
+ 
 }
 
 .card3:hover {
@@ -690,14 +693,10 @@ opacity:1;
 
 }
 
-html{
-  overflow-y: auto;
-}
+
 
 html::-webkit-scrollbar {
   width: 8px;
-
-  opacity: 0;
 }
 
 
@@ -712,38 +711,68 @@ border-radius: 10px;
 
 
 
-
-
 @media screen and (max-width: 600px) {
-
-  .event{
-    display: none;
-  }
-
-  .myTextHerosection{
-    overflow-y: scroll;
-  padding: 20px;
-    height: 150px;
-  }
-
-  .myTextHerosection::-webkit-scrollbar {
-    width: 10px;
-  }
-
-
-  .myTextHerosection::-webkit-scrollbar-thumb {
-    color: #13b760ee;
-  border:  10px solid;
-  border-radius: 10px;
+  .AlbumPage{
+    margin-bottom: 100px!important;
+   
   }
 
   
-
+  .event{
+    display: none;
+  }
+  
+  .myTextHerosection{
+    overflow-y: scroll;
+    padding: 20px;
+    height: 150px;
+  }
+  
+  .myTextHerosection::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  
+  .myTextHerosection::-webkit-scrollbar-thumb {
+    color: #13b760ee;
+    border:  10px solid;
+    border-radius: 10px;
+  }
+  
+  
+  
   .myTextHerosection::-webkit-scrollbar-track{
     background-color: grey;
     border:10px solid;
     border-radius: 10px;
   };
-
   
+
+}
+
+
+@media screen and (max-width:450px){
+  .list-group-horizontal{
+    flex-direction: column!important;
+   
+  }
+
+  .list-group-item{
+    width: 100%!important;
+  }
+
+  .trackListItem .item{
+    cursor: pointer;
+    background-color: rgb(3,18,21);
+  background: linear-gradient(90deg, rgba(3,18,21,0.9598214285714286) 0%, rgba(255,255,255,1) 98%, rgba(176,175,201,0.9990371148459384) 100%);
+    color: rgb(225, 225, 225);
+  border-radius: 0;
+  }
+  
+  .trackListItem:hover .item{
+    background-color: rgb(176,175,201);
+    background: linear-gradient(90deg, rgba(176,175,201,0.9990371148459384) 0%, rgba(255,255,255,1) 4%, rgba(3,18,21,0.9598214285714286) 96%);
+  }
+
+
 }

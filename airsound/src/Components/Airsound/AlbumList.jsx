@@ -32,10 +32,10 @@ const AlbumList= ()=>{
 
     return(
 
-        <Container fluid className="w-75">
+        <Container  className="mt-4">
 
 
-                <Row sm={1} md={2} lg={3} >
+                <Row sx={1} md={2} lg={4} >
                 {list?.data.map(el=>{
                     return(
                         
@@ -44,7 +44,7 @@ const AlbumList= ()=>{
                         
                         <ListGroup key={el.id} horizontal  className="my-2 listGroupDiv" onClick={()=>HadlerClick(el.album)}>
                     <ListGroup.Item className="itemColor"><img src={el.album.cover} alt="image"/></ListGroup.Item>
-                  <ListGroup.Item  className="itemColor text-light w-100 d-flex align-items-center"><span>{el.album.title}</span></ListGroup.Item>
+                  <ListGroup.Item  className="itemColor text-light w-100 d-flex align-items-center justify-content-center"><span>{el.album.title}</span></ListGroup.Item>
                     </ListGroup>    
                         </Col>
     

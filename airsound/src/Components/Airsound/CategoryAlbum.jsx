@@ -10,9 +10,9 @@ const CategoryAlbum=()=>{
     
 
 return(
-    <>
+   
     
-    <Container className="bg-dark pt-3 mt-4 mb-4">
+    <Container className="bg-dark pt-3 mt-4 ">
 
     <h2 className="text-light text-start ms-2">I più popolari:</h2>
   <ViewAlbumHomeCategory />
@@ -30,7 +30,7 @@ return(
 
     </Container>
     
-    </>
+    
 
 )
 
