@@ -84,17 +84,17 @@ const HandlerNext = () => {
 
     
     return (
-        <Container className='bg-dark justify-content-center myMediaPlayer'>
+        <Container className='bg-dark justify-content-center myMediaPlayer pt-1'>
             <Row>
                 <div className=''>
-                    <h4 className='text-light' id="Mytitle"><span style={{position:"relative",left:"100px"}}>{currentTrack && currentTrack.title}</span><Icon.AiFillCloseCircle size={25} cursor={"pointer"} className='text-secondary iconClose' onClick={()=>HandlerClick()}/> </h4>
+                    <h4 className='text-light' id="Mytitle"><span>{currentTrack && currentTrack.title}</span><Icon.AiFillCloseCircle size={25} cursor={"pointer"} className='text-secondary iconClose' onClick={()=>HandlerClick()}/> </h4>
 
                 </div>
 
-                <Col xs={2}>
+                <Col xs={12} md={2} className='mb-2'>
                 <img src={cover} style={{width:"80px"}} alt="picture" />
                 </Col>
-                <Col xs={10}>
+                <Col xs={12} md={10}>
                
                 <AudioPlayer src={currentTrack && currentTrack.preview} className="mediaPlayer" id="mediaPlayer"  autoPlayAfterSrcChange="true" autoPlay volume={0.0} onEnded={HandlerNext} />
                 </Col>

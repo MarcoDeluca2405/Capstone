@@ -9,7 +9,7 @@ import * as Icon from 'react-icons/ai'
 
 const TrackList= ()=>{
 const track = useSelector((state)=>state.Album.tracks.data)
-const cover = useSelector((state)=>state.Album.albumSelect2.cover_small)
+const cover = useSelector((state)=>state.Album.albumSelect2.cover_xl)
 
 const dispatch=useDispatch()
 
@@ -28,7 +28,7 @@ const hadlerClick2=(track,cover)=>{
 
 return(
     <>
-    <Container  className="mb-4">
+    <Container  className="mb-4 containerTrack">
         <div className="text-end my-3">
     <Button variant="dark" onClick={()=>hadlerClick(track,cover)}> <h6>Ascolta tutto l'album <Icon.AiFillPlayCircle /> </h6></Button>
 
@@ -51,7 +51,7 @@ return(
             
     <ListGroup key={el.id}  horizontal  className="my-2 trackListItem container-fluid w-100" >
           <ListGroup.Item variant="" className="w-25 d-flex item align-items-center justify-content-center" onClick={()=>hadlerClick2(el,cover)}><span> {el.track_position} </span></ListGroup.Item>
-          <ListGroup.Item variant=""className="w-50 d-flex item align-items-center justify-content-center" onClick={()=>hadlerClick2(el,cover)}><img src={cover} style={{width:"50px"}} alt="cover" /></ListGroup.Item>
+          <ListGroup.Item variant=""className="w-50 d-flex item align-items-center justify-content-center" onClick={()=>hadlerClick2(el,cover)}><img src={cover} className="imgTrack" style={{width:"50px"}} alt="cover" /></ListGroup.Item>
           <ListGroup.Item variant="" className="w-100 d-flex item align-items-center justify-content-center"onClick={()=>hadlerClick2(el,cover)}><span>{el.title} </span></ListGroup.Item>
           <FavoriteComponent props={el} cover={cover} index={i} />
 

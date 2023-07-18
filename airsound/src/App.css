@@ -552,10 +552,15 @@ background: linear-gradient(155deg, rgba(3,18,21,0.9598214285714286) 0%, rgba(60
 .myMediaPlayer{
   position: sticky;
   margin: auto;
-  padding-right: 100px;
+  padding-right: 12px;
   padding-bottom: 15px;
   bottom: 0px;
   z-index: 1;
+}
+
+.iconClose{
+  position: relative;
+  top: 2px;
 }
 
 .trackListItem .item{
@@ -717,7 +722,25 @@ border-radius: 10px;
    
   }
 
+  .settingPage{
+    margin-bottom: 150px!important;
+  }
+  .pageLogin{
+    margin-bottom: 150px!important;
+  }
   
+  .imgTrack{
+    width: 100px!important;
+  }
+
+  .containerTrack{
+    margin-bottom: 100px!important;
+  }
+
+  .CategoryAlbum{
+    margin-bottom: 100px!important;
+  }
+
   .event{
     display: none;
   }

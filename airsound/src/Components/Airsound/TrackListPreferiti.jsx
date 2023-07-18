@@ -45,7 +45,7 @@ fetchData(artist.name).then(data=>dispatch(select_album(data.data[0])))
     return(
        
          
-    <Container className="mb-4">
+    <Container className="mb-4 containerTrack">
         <div className="text-end">
 
 

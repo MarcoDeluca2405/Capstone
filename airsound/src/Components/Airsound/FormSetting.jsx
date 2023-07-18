@@ -271,7 +271,7 @@ setUsernamePassword({
 
 return(
   <>
-<Container className="d-flex justify-content-center box-center my-4">
+<Container className="d-flex justify-content-center box-center my-4 settingPage">
 
 <div className="cardfill">
   <div className="card2fill" style={{width:"320px"}}>
