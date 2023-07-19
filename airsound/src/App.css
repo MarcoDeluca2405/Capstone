@@ -192,7 +192,7 @@
   content: '';
   position: absolute;
   width: 100px;
-  background-image: linear-gradient(180deg, rgb(5, 255, 34), rgb(229, 9, 214));
+  background-image: linear-gradient(180deg, rgb(0, 34, 255), rgb(229, 9, 214));
   height: 140%;
   animation: rotBGimg 3s linear infinite;
   transition: all 0.2s linear;
@@ -706,7 +706,7 @@ html::-webkit-scrollbar {
 
 
 html::-webkit-scrollbar-thumb {
-  color: #13b760ee;
+  color: #0119d2ee;
   
 border:  10px solid;
 border-radius: 10px;

@@ -1,7 +1,7 @@
-import { Provider, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
-import store from './Redux/Store/store';
+
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
 
 import Homepage from './Components/Airsound/Homepage';
@@ -16,19 +16,20 @@ import PreferitoPage from './Components/Airsound/PreferitoPage';
 import PageSearch from './Components/Airsound/PageSearch';
 import SettingPage from './Components/Airsound/SettingPage';
 
-
+import myIntro from './Components/media/intro.mp4'
+import { useEffect, useState } from 'react';
 
 
 function App() {
 
   
-
   const is_select=useSelector((state)=>state.Album.isSelect)
+  var [isEnd,setIsEnd] =useState(false);
 
-  
 
   var hideTimeout; 
   var isScrolling = false; 
+
 
 
   function showScrollbar() {
@@ -79,6 +80,30 @@ function App() {
   
   startHideTimer();
 
+
+
+  useEffect(() => {
+    const videoElement = document.getElementById("intro");
+  
+    const intervalId=  setTimeout(()=>{ videoElement.play();videoElement.muted=false;setTimeout(intervalId)},1300);
+
+
+    if (videoElement) {
+      const playVideo = () => {
+      
+      // Aggiungi un event listener per avviare la riproduzione quando l'utente interagisce con l'elemento interattivo
+      videoElement.addEventListener("canplay", playVideo);
+      }
+      return () => {
+        // Rimuovi l'event listener durante lo smontaggio del componente
+        videoElement.removeEventListener("canplay", playVideo);
+        clearTimeout(intervalId)
+        
+      };
+    }
+  },[]);
+
+
   return (
    
     <BrowserRouter>
@@ -89,6 +114,16 @@ function App() {
 
 <Route path='/' element={
   <>
+
+{isEnd===true ? (<></>) : (
+  <video id="intro" onEnded={(e)=>{e.currentTarget.style.display="none";setIsEnd(true)}} autoPlay muted> 
+  <source src={myIntro} type="video/mp4"/>
+  </video>  
+
+)}
+ 
+
+
   <SideBarUpInizial />
   <PageLogin />
   </>
