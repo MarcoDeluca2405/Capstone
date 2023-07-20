@@ -784,6 +784,10 @@ border-radius: 10px;
     width: 100%!important;
   }
 
+  .intro-icon{
+    font-size: 130px;
+  }
+
   .trackListItem .item{
     cursor: pointer;
     background-color: rgb(3,18,21);

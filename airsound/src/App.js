@@ -17,7 +17,11 @@ import PageSearch from './Components/Airsound/PageSearch';
 import SettingPage from './Components/Airsound/SettingPage';
 
 import myIntro from './Components/media/intro.mp4'
+
+import * as Icon from 'react-icons/go'
+
 import { useEffect, useState } from 'react';
+import { Container } from 'react-bootstrap';
 
 
 function App() {
@@ -81,29 +85,6 @@ function App() {
   startHideTimer();
 
 
-
-  useEffect(() => {
-    const videoElement = document.getElementById("intro");
-  
-    const intervalId=  setTimeout(()=>{ videoElement.play();videoElement.muted=false;setTimeout(intervalId)},1300);
-
-
-    if (videoElement) {
-      const playVideo = () => {
-      
-      // Aggiungi un event listener per avviare la riproduzione quando l'utente interagisce con l'elemento interattivo
-      videoElement.addEventListener("canplay", playVideo);
-      }
-      return () => {
-        // Rimuovi l'event listener durante lo smontaggio del componente
-        videoElement.removeEventListener("canplay", playVideo);
-        clearTimeout(intervalId)
-        
-      };
-    }
-  },[]);
-
-
   return (
    
     <BrowserRouter>
@@ -116,10 +97,14 @@ function App() {
   <>
 
 {isEnd===true ? (<></>) : (
-  <video id="intro" onEnded={(e)=>{e.currentTarget.style.display="none";setIsEnd(true)}} autoPlay muted> 
+  <div className='container-video' >
+    
+  <Icon.GoPlay className='intro-icon' onClick={(e)=>{document.getElementById("intro").play();e.currentTarget.style.display="none"}} />
+    
+  <video className='intro' id="intro" onEnded={(e)=>{e.currentTarget.style.display="none";setIsEnd(true)}}  > 
   <source src={myIntro} type="video/mp4"/>
-  </video>  
-
+  </video> 
+</div>
 )}
  
 
