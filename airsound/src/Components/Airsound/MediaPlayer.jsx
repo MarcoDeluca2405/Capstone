@@ -96,7 +96,7 @@ const HandlerNext = () => {
                 </Col>
                 <Col xs={12} md={10}>
                
-                <AudioPlayer src={currentTrack && currentTrack.preview} className="mediaPlayer" id="mediaPlayer"  autoPlayAfterSrcChange="true" autoPlay volume={0.0} onEnded={HandlerNext} />
+                <AudioPlayer src={currentTrack && currentTrack.preview} className="mediaPlayer" id="mediaPlayer"  autoPlayAfterSrcChange="true" autoPlay volume={0.3} onEnded={HandlerNext} />
                 </Col>
             </Row>
         </Container>
