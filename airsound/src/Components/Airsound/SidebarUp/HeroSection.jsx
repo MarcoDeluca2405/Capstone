@@ -29,7 +29,7 @@ import { Card, Col, Container, Row } from "react-bootstrap";
         <Row className="g-0">
       <Col sx={12} md={4}>
       
-      <Card.Img variant="top" className="py-3" src={album1?.artist.picture_big}  style={{maxWidth:"250px"}}/>
+      <Card.Img variant="top"  className="py-3" src={album1?.artist.picture_big}  style={{maxWidth:"250px",cursor:"pointer"}} onClick={()=>handleClick(album1)}/>
 
       </Col>
       <Col sx={12} md={8} >
