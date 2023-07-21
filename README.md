@@ -1,6 +1,6 @@
 # Capstone
 
-Progetto che riguarda la mia passione per la musica, ho relizzato questo WebAPP streaming musicale chiamta Airsound con l'ambiente di sviluppo visual Code per la parte front-end e per la parte back-end ho usato eclipse entreprise mentre per la gestione del database ho usato postegres.
+Progetto che riguarda la mia passione per la musica, ho relizzato questo WebAPP streaming musicale chiamata Airsound con l'ambiente di sviluppo visual Code per la parte front-end e per la parte back-end ho usato eclipse entreprise mentre per la gestione del database ho usato postegres.
 per la parte-back end ho sfruttato il framework di spring boot con le varie dipendenze per installarle basta avviarlo:
 - lombok
 - jwt
