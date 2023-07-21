@@ -682,6 +682,7 @@ background: linear-gradient(0deg, rgba(33,32,32,1) 0%, rgba(131,131,131,0.690913
   width: 130px;
   height: 120px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .pencil{
