@@ -21,7 +21,7 @@ const PreferitoPage = () => {
         
         <Col>
           <SearchBar />
-          <Col>
+          <Col style={{height:"55vh"}}>
 
            <TrackListPreferiti />
             

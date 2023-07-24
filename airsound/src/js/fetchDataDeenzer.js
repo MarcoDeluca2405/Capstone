@@ -72,9 +72,7 @@ export const fetchDataSearchNamed= async (name)=>{
         
         const response = await fetch(`http://localhost:8080/api/auth/${username}/immagine`, {
           method: isImage ? 'PUT' : 'POST',
-          headers: {
-            "Authorization": "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJwcm92YUBnbWFpbC5jb20iLCJpYXQiOjE2ODkyNDUwMzMsImV4cCI6MTY5MDEwOTAzM30.f1AjUUjp4ipi1Duhg_niooCkIdakatJ5VwqOBN7tvGHlolorMTYZvVcYzSPoBnhO",
-          },
+          
           body: formData,
         });
   

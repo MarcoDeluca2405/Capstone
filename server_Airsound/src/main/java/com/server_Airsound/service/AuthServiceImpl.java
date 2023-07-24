@@ -181,20 +181,22 @@ public class AuthServiceImpl implements AuthService {
     @Transactional
     public ResponseEntity<InputStreamResource> searchImage(String username) {
         User user = userRepository.findByUsername(username);
-        try {
-        	ByteArrayInputStream inputStream =new ByteArrayInputStream(user.getImage());
-        	   HttpHeaders headers = new HttpHeaders();
-               headers.setContentType(MediaType.IMAGE_JPEG); // Cambia se l'immagine non è JPEG
+        if (user != null && user.getImage() != null) {
+            try {
+                ByteArrayInputStream inputStream = new ByteArrayInputStream(user.getImage());
+                HttpHeaders headers = new HttpHeaders();
+                headers.setContentType(MediaType.IMAGE_JPEG); // Cambia se l'immagine non è JPEG
 
-               return ResponseEntity.ok()
-                       .headers(headers)
-                       .body(new InputStreamResource(inputStream));
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			// TODO: handle exception
-		}
-		return null;
+                return ResponseEntity.ok()
+                        .headers(headers)
+                        .body(new InputStreamResource(inputStream));
+            } catch (Exception e) {
+                e.printStackTrace();
+                // TODO: gestire l'eccezione
+            }
+        }
+        // Restituisci una risposta appropriata quando l'immagine non è trovata
+        return ResponseEntity.notFound().build();
     }
     
     @Transactional(readOnly = true)
