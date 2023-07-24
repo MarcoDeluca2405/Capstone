@@ -776,6 +776,10 @@ border-radius: 10px;
 
 
 @media screen and (max-width:450px){
+.myMediaPlayer{
+  margin-bottom: 100px;
+}
+
   .list-group-horizontal{
     flex-direction: column!important;
    
