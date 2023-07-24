@@ -22,7 +22,7 @@ const TrackListPreferiti=()=>{
 
     const handleClick= (artist)=>{
         
-fetchData(artist.name).then(data=>dispatch(select_album(data.data[0])))
+fetchData(artist.name).then(data=>dispatch(select_album(data.data[1])))
         dispatch(add_text(""))
         setTimeout(()=>{navigate("/albumPage");clearTimeout()},500)
        
