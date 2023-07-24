@@ -90,7 +90,7 @@ const fileInputRef = useRef(null);
                 (
                   <>
                   <Image
-                  src="https://solarbetsg.com/wp-content/uploads/2021/02/male1-768x767.jpg"
+                  src="https://ceacopiniones.es/wp-content/uploads/2019/03/user-3-1024x1024.png"
                   className="imageProfile"
                   onClick={handleImageClick}
                   />

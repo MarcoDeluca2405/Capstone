@@ -27,7 +27,7 @@ const Weather = ()=>{
       <Row className="h-100 w-100">
         <Col className="h-100 col-6 p-0 m-0">
         <Container className="h-100 p-0 ">
-      <Card.Img  style={{height:"100%",width:"80%"}}  src={" https://openweathermap.org/img/wn/"+weather.weather[0].icon+".png"}></Card.Img>
+      <Card.Img  style={{height:"69px",width:"75px"}}  src={" https://openweathermap.org/img/wn/"+weather.weather[0].icon+".png"}></Card.Img>
 
         </Container>
         

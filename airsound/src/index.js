@@ -13,7 +13,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 <Provider store={store}>
     <PersistGate loading={null} persistor={persistor} >
-    <video id="background-video" autoPlay={true} muted>
+    <video id="background-video" loop autoPlay muted>
         <source src={media} type='video/mp4'></source>
     </video>
     

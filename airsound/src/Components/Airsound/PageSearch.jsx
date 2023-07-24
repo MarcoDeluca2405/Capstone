@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { fetchDataSearch } from "../../js/fetchDataDeenzer";
 import { useNavigate } from "react-router-dom";
 import { add_text } from "../../Redux/Action/action";
+import PropagateLoader from "react-spinners/PropagateLoader"
 
 
 const PageSearch =()=>{
@@ -15,6 +16,8 @@ const PageSearch =()=>{
 const text= useSelector((state)=>state.user.text)+""
 
 const [track,setTrack]=useState();
+
+const [isLoad,setIsLoad]=useState(false);
 
 const dispatch=useDispatch();
 
@@ -30,10 +33,13 @@ const fetchDataSearch= async (textSearch)=>{
           
         }
       })
-      const data=await response.json();
-      const resolve= await data;
-      setTrack(resolve)
-      
+      if(response.ok){
+
+        const data=await response.json();
+        const resolve= await data;
+        setTrack(resolve);
+        setIsLoad(true);
+      }
     } catch (error) {
       console.log(error)
     }
@@ -64,8 +70,10 @@ return(
   <Col>
     <SearchBar />
     <Col>
-
-     <TrackListSearch  track={track?.data}/>
+  {
+    isLoad===false ? (<div><PropagateLoader loading color="linear-gradient(90deg, rgba(255,0,251,0.9486169467787114) 0%, rgba(69,71,252,0.9486169467787114) 100%)" className="pt-3 mt-3" size={10} data-testid="loader" /></div>) : (<TrackListSearch  track={track?.data}/>)
+  }
+     
       
 
     </Col>
