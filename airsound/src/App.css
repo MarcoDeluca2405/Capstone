@@ -715,6 +715,11 @@ border-radius: 10px;
 }
 
 
+#message{
+  color: color-mix(in srgb, red 70%, blue 30%);
+
+}
+
 
 
 @media screen and (max-width: 600px) {

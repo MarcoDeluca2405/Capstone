@@ -13,6 +13,9 @@ import { add_city, add_email, add_lastname, add_name, add_password, add_provinci
 
 const FormSetting=()=>{
 
+  //document
+  var oldpassword;
+
   //dispatch
   const dispatch=useDispatch();
 
@@ -20,6 +23,13 @@ const FormSetting=()=>{
   const user= useSelector((state)=>state.user.user)
   
   const [usernamePassword,setUsernamePassword]=useState();
+
+  const [isValid,setIsValid]=useState(false);
+
+  //useState from document
+  const [oldPassword,setOldPassword]=useState(document.getElementById("oldpassword"));
+  const [password,setPassword]=useState(document.getElementById("password"));
+  const [msg,setMsg]=useState(document.getElementById("message"));
 
   //show Modals
   const [show, setShow] = useState(false);
@@ -42,6 +52,18 @@ const FormSetting=()=>{
         theme: "dark",
         role:"alert"
         });
+
+        const notifyError2 = () =>   toast.error('Inserire la vecchia password', {
+          position: "top-center",
+          autoClose: 1250,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: false,
+          progress: undefined,
+          theme: "dark",
+          role:"alert"
+          });
 
        const notifySuccess= ()=> {toast.success('Utente Modificato', {
         position: "top-center",
@@ -111,6 +133,39 @@ setUsernamePassword({
         })
     }
 
+    const handleChangeVerify= async (event)=>{
+      
+      try {
+        
+        const response =await fetch("http://localhost:8080/api/auth/"+user.username+"/?password="+event.target.value);
+        if(response.ok){
+          const data= await response.json();
+          
+          if(data===true){
+            setIsValid(true);
+           password.style.display="block";
+           oldPassword.style.border="2px outset green";
+            setTimeout(()=>oldPassword.style.border="none",1500);
+
+        }else{
+          setIsValid(false);
+          password.value="";
+          password.style.display="none";
+          oldPassword.style.border="2px inset red";
+          msg.style.display="block";
+          msg.textContent="password non corretta";
+          setTimeout(()=>{oldPassword.style.border="none";msg.style.display="none"},1500);
+          
+        }
+        }
+
+      } catch (error) {
+        console.log(error);
+      }
+
+       
+    }
+
     const handleChangeUser=(data)=>{
       let value=data;
       let name="adress";
@@ -123,7 +178,15 @@ setUsernamePassword({
     }
 
 
+    const handleValid=()=>{
+      isValid ? handleShow() : notifyError2();
+    }
+
+
     //fetch
+
+    
+
     const fetchDataRegione= async ()=>{
       try {
         const response= await fetch("http://localhost:8080/api/Adress/all/Regione")
@@ -254,7 +317,7 @@ setUsernamePassword({
     }
 
 
-    useEffect(()=>{fetchDataRegione() },[]);
+    useEffect(()=>{fetchDataRegione();setOldPassword(document.getElementById("oldpassword"));setPassword(document.getElementById("password"));setMsg(document.getElementById("message"))},[]);
 
     useEffect(()=>{
       fetchDataTerritorio()
@@ -275,7 +338,7 @@ return(
 
 <div className="cardfill">
   <div className="card2fill" style={{width:"320px"}}>
-    <form className="form" onSubmit={(e)=>{fetchSubmit(e)}}>
+    <form className="form"  onSubmit={(e)=>{fetchSubmit(e)}}>
     <p id="heading">Settings</p>
     <div className="field">
     <img src={mySvg} width="20px" alt="img svg" />
@@ -295,11 +358,19 @@ return(
     </svg>
       <input type="text" className="input-field" name="email"  required="true" placeholder="Email" value={state.email} autocomplete="off" onChange={handleChange} />
     </div>
+    <div className="field" id="oldpassword">
+    <svg viewBox="0 0 16 16" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg" className="input-icon">
+    <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path>
+    </svg>
+      <input type="password" className="input-field"  required="true"   name="oldpassword" placeholder="Inserisci vecchia password"  onBlur={handleChangeVerify}/> 
+    </div>
+     <p id="message"style={{display:"none"}} ></p>
+
     <div className="field">
     <svg viewBox="0 0 16 16" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg" className="input-icon">
     <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path>
     </svg>
-      <input type="password" className="input-field"  required="true"  name="password" placeholder="Password" onChange={handleChange} /> 
+      <input type="password" className="input-field" style={{display:"none"}} required="true"  id="password" name="password" placeholder="Inserisci nuova password" onChange={handleChange} /> 
     </div>
 
     <div>
@@ -356,7 +427,7 @@ return(
     
     <div className="btn">
     
-    <Button type="button" onClick={handleShow} className="button2 btn-sm">Modifica</Button>
+    <Button type="button" onClick={handleValid} className="button2 btn-sm">Modifica</Button>
     </div>
 </form>
   </div>

@@ -91,4 +91,9 @@ public class AuthController {
     	return ResponseEntity.ok(service.existImage(username));
     }
     
+    @GetMapping(value=("/{username}/"), params= {"password"})
+    public ResponseEntity<Boolean> getPassword(@PathVariable String username, @RequestParam String password){
+    	return ResponseEntity.ok(service.getPassword(password,username));
+    }
+    
 }

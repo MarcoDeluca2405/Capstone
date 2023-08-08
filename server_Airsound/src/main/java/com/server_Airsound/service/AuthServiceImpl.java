@@ -207,6 +207,12 @@ public class AuthServiceImpl implements AuthService {
      }
 
     
+    public Boolean getPassword(String password,String username) {
+    	User user= userRepository.findByUsername(username);
+    	return  passwordEncoder.matches(password,user.getPassword());
+    }
+    
+    
     public ERole getRole(String role) {
     	if(role.equals("ADMIN")) return ERole.ROLE_ADMIN;
     	else if(role.equals("MODERATOR")) return ERole.ROLE_MODERATOR;
